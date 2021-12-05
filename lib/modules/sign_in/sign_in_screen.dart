@@ -21,7 +21,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
 
   var formKey = GlobalKey<FormState>();
-
   var passWordController = TextEditingController();
 
   @override
@@ -100,7 +99,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     Row(
                       children: [
-                        Text('don\'t have an account?'),
+                        const Text('don\'t have an account?'),
                         TextButton(
                           onPressed: (){
                             setState(() {
@@ -112,7 +111,9 @@ class _SignInScreenState extends State<SignInScreen> {
                               );
                             });
                           }, 
-                          child: Text('Sign Up!')
+                          child: const Text(
+                            'Sign Up!'
+                          )
                     )
                       ],
                     ),
@@ -131,7 +132,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     Row(
                       children: [
-                        Text('forgot your password?'),
+                        const Text(
+                          'forgot your password?'
+                        ),
                         TextButton(
                           onPressed: (){
                             setState(() {
@@ -143,7 +146,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               );
                             });
                           }, 
-                          child: Text(
+                          child: const Text(
                             'Reset',
                             
                           )
