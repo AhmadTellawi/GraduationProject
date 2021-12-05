@@ -66,14 +66,14 @@ Widget defaultFormField(
 Widget postBuilder(){
   return Container(
     color: Colors.green,
-    height: 100,
+    height: 125,
     width: double.infinity,
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
           Row(
-            children: [
+            children: const [
               CircleAvatar(
                 backgroundColor: Colors.red,
               ),
@@ -104,7 +104,7 @@ Widget postBuilder(){
             ],
           ),
           SizedBox(height: 20,),
-          Text(
+          const Text(
             'POST CONTENT',
             style: TextStyle(
               fontSize: 20

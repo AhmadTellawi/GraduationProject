@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
+import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
 import 'package:gigapet/modules/identity/identity_screen.dart';
 import 'package:gigapet/modules/profile/edit_profile_screen.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: const SignInScreen()
+      home: CommunityScreen()
     );
   }
 }

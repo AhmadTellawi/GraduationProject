@@ -12,7 +12,6 @@ class _CommunityScreenState extends State<CommunityScreen> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool isOpen = false;
-
   IconData fabIcon = Icons.edit;
 
   @override
@@ -20,6 +19,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 20, start: 10, end: 10),
       child: Scaffold(
+        appBar: AppBar(
+          
+        ),
         key: scaffoldKey,
         floatingActionButton: FloatingActionButton(
           hoverColor: Colors.green,
