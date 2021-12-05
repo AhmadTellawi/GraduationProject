@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: const GigaPetLayout()
+      home: const SignInScreen()
     );
   }
 }
