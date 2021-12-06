@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
@@ -9,6 +11,7 @@ class OwnerSignUpScreen extends StatefulWidget {
 
   @override
   State<OwnerSignUpScreen> createState() => _OwnerSignUpScreenState();
+
 }
 
 class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
@@ -18,6 +21,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
   var formKey = GlobalKey<FormState>();
   var passWordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,4 +148,5 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
       ),
     );
   }
+
 }
