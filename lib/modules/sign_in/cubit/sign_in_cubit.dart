@@ -14,8 +14,10 @@ class LoginCubit extends Cubit<LoginStates>{
     emit(PasswordVisibilityState());
   }
 
-  // void userLogin({
-  //   required String email,
-  //   required String password
-  // }){}
+  void userLogin({
+    required String email,
+    required String password
+  }){
+    emit(LoginLoadingState());
+  }
 }

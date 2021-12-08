@@ -19,8 +19,23 @@ class RegisterCubit extends Cubit<RegisterStates>{
     emit(PasswordVisibilityState());
   }
 
-  // void userLogin({
-  //   required String email,
-  //   required String password
-  // }){}
+  void userRegister({
+    required String fName,
+    required String lName,
+    required String email,
+    required String username,
+    required String password,
+  }){
+    emit(RegisterLoadingState());
+  }
+
+  void petRegister({
+    required String petName,
+    required String petType,
+    required String breed,
+    required String dateOfBirth,
+    
+  }){
+    emit(RegisterLoadingState());
+  }
 }
