@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
@@ -15,6 +17,7 @@ class OwnerSignUpScreen extends StatefulWidget {
 
   @override
   State<OwnerSignUpScreen> createState() => _OwnerSignUpScreenState();
+
 }
 
 class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
@@ -28,6 +31,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
   var lNameController = TextEditingController();
   var emailController = TextEditingController();
   var userNameController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -167,4 +171,5 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
       ),
     );
   }
+
 }
