@@ -7,6 +7,9 @@ import 'package:gigapet/modules/identity/identity_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
+import 'cubit/sign_in_cubit.dart';
+import 'cubit/states.dart';
+
 class SignInScreen extends StatefulWidget {
 
   const SignInScreen({Key? key}) : super(key: key);
@@ -27,13 +30,13 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
 
     return BlocProvider(
-      create: (context) => AppCubit(),
-      child: BlocConsumer<AppCubit, AppStates>(
+      create: (context) => LoginCubit(),
+      child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
           
         },
         builder: (context, state) {
-          var cubit = AppCubit.get(context);
+          var cubit = LoginCubit.get(context);
           return Scaffold(
             appBar: AppBar(),
           body: Padding(
@@ -80,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       isPassowrd: cubit.isPassword,
                       icon: cubit.isPassword? Icons.visibility : Icons.visibility_off,
                       iconPressed: (){
-                        cubit.chnageVisibility();
+                        cubit.changeVisibility();
                       }
                     ),
                     const SizedBox(height: 20),
@@ -88,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       text: 'LOGIN',
                       onPressed: (){
                         if(formKey.currentState!.validate()){
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context, 
                             MaterialPageRoute(
                               builder: (context) => const GigaPetLayout()
@@ -120,14 +123,12 @@ class _SignInScreenState extends State<SignInScreen> {
                     defaultButton(
                       text: 'TAKE A LOOK',
                       onPressed: (){
-                        if(formKey.currentState!.validate()){
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
                               builder: (context) => const GigaPetLayout()
                             )
                           );
-                        }
                       }
                     ),
                     Row(
@@ -148,7 +149,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           }, 
                           child: const Text(
                             'Reset',
-                            
                           )
                         )
                       ],
@@ -160,6 +160,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         );
         }, 
+      
       ),
     );
   }

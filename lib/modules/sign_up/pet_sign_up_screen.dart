@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/shared/components/components.dart';
+import 'package:intl/intl.dart';
 
 class PetSignUpScreen extends StatefulWidget {
   const PetSignUpScreen({ Key? key }) : super(key: key);
@@ -11,11 +12,11 @@ class PetSignUpScreen extends StatefulWidget {
 
 class _PetSignUpScreenState extends State<PetSignUpScreen> {
 
-  bool isPassword = true;
-  bool isPasswordConfirm = true;
   var formKey = GlobalKey<FormState>();
-  var passWordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
+  var dateController = TextEditingController();
+  var typeController = TextEditingController();
+  var breedController = TextEditingController();
+  var nameController = TextEditingController();
 
   
   @override
@@ -50,17 +51,21 @@ class _PetSignUpScreenState extends State<PetSignUpScreen> {
                 SizedBox(height: 20,),
                   defaultFormField(
                     label: 'Pet Name',
+                    controller: nameController
                   ),
                   const SizedBox(height: 20),
         
                    defaultFormField(
+                     controller: dateController,
                      onTap: (){
                        showDatePicker(
                          context: context, 
                          initialDate: DateTime.now(), 
-                         firstDate: DateTime.now(), 
+                         firstDate: DateTime(2000), 
                          lastDate: DateTime.now()
-                       );
+                       ).then((value) {
+                         dateController.text = DateFormat.yMMMEd().format(value!);
+                       });
                      },
                     label: 'Date of Birth',
                   ),
@@ -68,18 +73,20 @@ class _PetSignUpScreenState extends State<PetSignUpScreen> {
                   defaultFormField(
                     keyboardtype: TextInputType.text,
                     label: 'Type',
+                    controller: typeController
                   ),
                   const SizedBox(height: 20),
                   defaultFormField(
                     keyboardtype: TextInputType.text,
                     label: 'Breed',
+                    controller: breedController
                   ),
                   const SizedBox(height: 20),
                   defaultButton(
                     //color: Colors.blue,
                     text: 'SIGN UP',
                     onPressed: (){
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context, 
                           MaterialPageRoute(
                             builder: (context) => const GigaPetLayout()

@@ -64,6 +64,7 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                   const SizedBox(height: 20),
                   defaultFormField(
                     keyboardtype: TextInputType.emailAddress,
+                    hintText: 'This will be used when you sign in..',
                     label: 'Email Address',
                     validator: (value){
                       if(value!.isEmpty){
@@ -73,6 +74,7 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                   ),
                   const SizedBox(height: 20),
                   defaultFormField(
+                    hintText: 'Your store name in the app..',
                     label: 'Username',
                     validator: (value){
                       if(value!.isEmpty){

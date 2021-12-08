@@ -12,6 +12,9 @@ import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/bloc_observer.dart';
+
+import 'layout/cubit/cubit.dart';
+import 'modules/sign_in/cubit/sign_in_cubit.dart';
 // import 'package:sqflite/sqflite.dart';
 // import 'package:to_do_app/layout/news_app/news_layout.dart';
 // import 'package:to_do_app/layout/todo_app/todo_layout.dart';
@@ -25,7 +28,7 @@ import 'package:gigapet/shared/bloc_observer.dart';
 
 void main() {
 
-   Bloc.observer = MyBlocObserver();
+  Bloc.observer = MyBlocObserver();
   // DioHelper.init();
   runApp(const MyApp());
 }
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: CommunityScreen()
+      home: SignInScreen()
     );
   }
 }

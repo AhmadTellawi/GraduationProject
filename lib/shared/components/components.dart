@@ -57,7 +57,8 @@ Widget defaultFormField(
       ),
       hintText: hintText,
       hintStyle: const TextStyle(
-        fontStyle: FontStyle.italic
+        fontStyle: FontStyle.italic,
+        color: Colors.grey
       )
     ),
   );
@@ -65,7 +66,7 @@ Widget defaultFormField(
 
 Widget postBuilder(){
   return Container(
-    color: Colors.green,
+    color: Colors.grey,
     height: 125,
     width: double.infinity,
     child: Padding(
@@ -94,6 +95,18 @@ Widget postBuilder(){
                 ),
               ),
               SizedBox(width: 20,),
+              Expanded(
+                child: Text(
+                  'Topic',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                  ),
+                ),
+              ),
+              SizedBox(width: 20,),
               Text(
                 'Type - Breed',
                 style: TextStyle(
@@ -115,3 +128,4 @@ Widget postBuilder(){
     ),
   );
 }
+

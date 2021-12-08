@@ -63,6 +63,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                   ),
                   const SizedBox(height: 20),
                   defaultFormField(
+                    hintText: 'This will be used when you sign in..',
                     keyboardtype: TextInputType.emailAddress,
                     label: 'Email Address',
                     validator: (value){
@@ -73,6 +74,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                   ),
                   const SizedBox(height: 20),
                   defaultFormField(
+                    hintText: 'Your clinic name in the app..',
                     label: 'Username',
                     validator: (value){
                       if(value!.isEmpty){

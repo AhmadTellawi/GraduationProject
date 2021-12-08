@@ -19,9 +19,6 @@ class _CommunityScreenState extends State<CommunityScreen> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 20, start: 10, end: 10),
       child: Scaffold(
-        appBar: AppBar(
-          
-        ),
         key: scaffoldKey,
         floatingActionButton: FloatingActionButton(
           hoverColor: Colors.green,
@@ -52,7 +49,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                         SizedBox(height: 10),
                 
                         defaultFormField(
-                          label: 'Post Title',
+                          label: 'Post Topic',
                         ),
                         SizedBox(
                           height: 10,

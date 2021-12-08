@@ -13,6 +13,7 @@ class AppCubit extends Cubit<AppStates>{
   static AppCubit get(context) => BlocProvider.of(context);
 
   bool isPassword = true;
+  bool isConfirmPassword = true;
   int currentIndex = 1;
   List<BottomNavigationBarItem> navBarItems = [
     const BottomNavigationBarItem(
@@ -50,10 +51,18 @@ class AppCubit extends Cubit<AppStates>{
     emit(BottomNavIndexChangedState());
   }
 
-  void chnageVisibility(){
+  void changeVisibility(){
     isPassword = !isPassword;
     emit(PasswordVisibilityState());
   }
+
+  void changeConfirmVisibility(){
+    isConfirmPassword = !isConfirmPassword;
+    emit(PasswordVisibilityState());
+  }
+
+
+   
 
   
 }
