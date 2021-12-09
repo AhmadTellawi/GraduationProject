@@ -16,6 +16,9 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
   var formKey = GlobalKey<FormState>();
   var passWordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  var storeWorkHoursFromController = TextEditingController();
+  var storeWorkHoursToController = TextEditingController();
+  var storeAddressController = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
@@ -119,6 +122,52 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                         isPasswordConfirm = !isPasswordConfirm;
                       });
                     }
+                  ),
+                  const SizedBox(height: 20),
+                  defaultFormField(
+                    controller: storeWorkHoursFromController,
+                      label: 'Work Hours From',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Work Hours Must Not Be Empty';
+                        }
+                      },
+                      onTap: (){
+                        showTimePicker(
+                          context: context, 
+                          initialTime: TimeOfDay.now()
+                        ).then((value) {
+                          storeWorkHoursFromController.text = value.toString();
+                        });
+                      }
+                      
+                  ),
+                  const SizedBox(height: 20),
+                  defaultFormField(
+                      label: 'Work Hours To',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Work Hours Must Not Be Empty';
+                        }
+                      },
+                      onTap: (){
+                        showTimePicker(
+                          context: context, 
+                          initialTime: TimeOfDay.now()
+                        ).then((value) {
+                          storeWorkHoursToController.text = value.toString();
+                        });
+                      }
+                  ),
+                  const SizedBox(height: 20),
+                  defaultFormField(
+                    controller: storeAddressController,
+                      label: 'Store Address',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Address Must Not Be Empty';
+                        }
+                      }
                   ),
                   const SizedBox(height: 20),
       

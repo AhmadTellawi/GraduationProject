@@ -16,6 +16,9 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
   var formKey = GlobalKey<FormState>();
   var passWordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  var clinicWorkHoursFromController = TextEditingController();
+  var clinicWorkHoursToController = TextEditingController();
+  var clinicAddressController = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
@@ -119,6 +122,53 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                         isPasswordConfirm = !isPasswordConfirm;
                       });
                     }
+                  ),
+                  SizedBox(height: 20,),
+                  defaultFormField(
+                    controller: clinicWorkHoursFromController,
+                      label: 'Work Hours From',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Work Hours Must Not Be Empty';
+                        }
+                      },
+                      onTap: (){
+                        showTimePicker(
+                          context: context, 
+                          initialTime: TimeOfDay.now()
+                          
+                        ).then((value) {
+                          clinicWorkHoursFromController.text = value.toString();
+                        });
+                      }
+                      
+                  ),
+                  const SizedBox(height: 20),
+                  defaultFormField(
+                      label: 'Work Hours To',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Work Hours Must Not Be Empty';
+                        }
+                      },
+                      onTap: (){
+                        showTimePicker(
+                          context: context, 
+                          initialTime: TimeOfDay.now()
+                        ).then((value) {
+                          clinicWorkHoursToController.text = value.toString();
+                        });
+                      }
+                  ),
+                  const SizedBox(height: 20),
+                  defaultFormField(
+                    controller: clinicAddressController,
+                      label: 'Clinic Address',
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Address Must Not Be Empty';
+                        }
+                      }
                   ),
                   const SizedBox(height: 20),
       

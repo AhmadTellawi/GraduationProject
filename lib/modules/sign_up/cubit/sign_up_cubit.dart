@@ -19,7 +19,7 @@ class RegisterCubit extends Cubit<RegisterStates>{
     emit(PasswordVisibilityState());
   }
 
-  void userRegister({
+  void ownerRegister({
     required String fName,
     required String lName,
     required String email,
@@ -35,6 +35,34 @@ class RegisterCubit extends Cubit<RegisterStates>{
     required String breed,
     required String dateOfBirth,
     
+  }){
+    emit(RegisterLoadingState());
+  }
+
+  void storeRegister({
+    required String fName,
+    required String lName,
+    required String email,
+    required String username,
+    required String password,
+    required String workHoursFrom,
+    required String workHoursTo,
+    required String address,
+
+  }){
+    emit(RegisterLoadingState());
+  }
+
+  void clinicRegister({
+    required String fName,
+    required String lName,
+    required String email,
+    required String username,
+    required String password,
+    required String workHoursFrom,
+    required String workHoursTo,
+    required String address,
+
   }){
     emit(RegisterLoadingState());
   }

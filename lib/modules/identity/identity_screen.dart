@@ -89,7 +89,7 @@ class IdentityScreen extends StatelessWidget {
                       Navigator.push(
                         context, 
                         MaterialPageRoute(
-                          builder: (context) => OwnerSignUpScreen(),
+                          builder: (context) => ClinicSignUpScreen(),
                         )
                       );
                     },
@@ -158,7 +158,7 @@ class IdentityScreen extends StatelessWidget {
                               Navigator.push(
                                 context, 
                                 MaterialPageRoute(
-                                  builder: (context) => OwnerSignUpScreen(),
+                                  builder: (context) => StoreSignUpScreen(),
                                 )
                               );
                             },
