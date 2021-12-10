@@ -1,4 +1,5 @@
 
+import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
@@ -141,20 +142,36 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                         }
                       ),
                       const SizedBox(height: 20),
+                     BuildCondition(
+                         condition: state is! RegisterLoadingState,
+                          builder: (context) => defaultButton(
+                            onPressed: ()
+                          {
+                            if (formKey.currentState!.validate())
+                              {
+                                RegisterCubit.get(context).ownerRegister(
+                                  fName: userNameController.text,
+                                  lName: userNameController.text,
+                                  username: userNameController.text,
+                                  email: emailController.text,
+                                  password: passWordController.text,
+                                );
+                              }
+                            // Navigator.pushReplacement(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const PetSignUpScreen()
+                            //     )
+                            // );
+                          },
+                       text: 'Register',
+                          ),
+                       fallback: (context) =>
+                           Center(child: CircularProgressIndicator()),
+                     ),
+
           
-                      defaultButton(
-                        text: 'NEXT',
-                        onPressed: (){
-                          if(formKey.currentState!.validate()){
-                            Navigator.pushReplacement(
-                              context, 
-                              MaterialPageRoute(
-                                builder: (context) => const PetSignUpScreen()
-                              )
-                            );
-                          }
-                        }
-                      )
+
                     ],
                   ),
                 ),
@@ -163,7 +180,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
           ),
         );
         },
-          
+
       ),
     );
   }

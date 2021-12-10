@@ -8,7 +8,7 @@ class RegisterSuccessState extends RegisterStates{}
 
 class RegisterErrorState extends RegisterStates{
   final String? error;
-  RegisterErrorState({this.error});
+  RegisterErrorState(String string, {this.error});
 }
 
 class PasswordVisibilityState extends RegisterStates{}
