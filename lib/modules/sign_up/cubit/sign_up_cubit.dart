@@ -95,3 +95,4 @@ class RegisterCubit extends Cubit<RegisterStates>{
 
 
 //Sign-up
+//SignUp
