@@ -1,10 +1,11 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/modules/sign_up/cubit/states.dart';
+import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
-
 import 'cubit/sign_up_cubit.dart';
-import 'cubit/states.dart';
+
 
 class ClinicSignUpScreen extends StatefulWidget {
   const ClinicSignUpScreen({ Key? key }) : super(key: key);
@@ -61,63 +62,61 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                                 fontWeight: FontWeight.bold
                             )
                         ),
-                        const SizedBox(height: 20,),
-                        defaultFormField(
-                            label: 'First Name',
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'First Name Must Not Be Empty';
-                              }
-                            }
-                        ),
-                        const SizedBox(height: 20),
+                         const SizedBox(height: 20,),
+                         defaultFormField(
+                             label: 'First Name',
+                             validator: (value) {
+                               if (value!.isEmpty) {
+                                 return 'First Name Must Not Be Empty';
+                               }
+                             }
+                         ),
+                         const SizedBox(height: 20),
 
-                        defaultFormField(
-                            label: 'Last Name',
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Last Name Must Not Be Empty';
-                              }
-                            }
+                         defaultFormField(
+                             label: 'Last Name',
+                             validator: (value) {
+                               if (value!.isEmpty) {
+                                 return 'Last Name Must Not Be Empty';
+                               }
+                             }
                         ),
                         const SizedBox(height: 20),
                         defaultFormField(
                             hintText: 'This will be used when you sign in..',
                             keyboardtype: TextInputType.emailAddress,
+                            controller: emailController,
                             label: 'Email Address',
-                            validator: (value) {
-                              if (value!.isEmpty) {
+                            validator: (value){
+                              if(value!.isEmpty){
                                 return 'Email Must Not Be Empty';
                               }
                             }
                         ),
+                         const SizedBox(height: 20),
+                         defaultFormField(
+                             hintText: 'Your clinic name in the app..',
+                             label: 'Username',
+                             validator: (value) {
+                               if (value!.isEmpty) {
+                                 return 'Username Must Not Be Empty';
+                               }
+                             }
+                         ),
                         const SizedBox(height: 20),
                         defaultFormField(
-                            hintText: 'Your clinic name in the app..',
-                            label: 'Username',
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Username Must Not Be Empty';
-                              }
-                            }
-                        ),
-                        const SizedBox(height: 20),
-                        defaultFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
+                            validator: (value){
+                              if(value!.isEmpty){
                                 return 'Password Must Not Be Empty';
                               }
                             },
                             controller: passWordController,
                             label: 'Password',
                             keyboardtype: TextInputType.visiblePassword,
-                            isPassowrd: isPassword,
-                            icon: isPassword ? Icons.visibility : Icons
-                                .visibility_off,
-                            iconPressed: () {
-                              setState(() {
-                                isPassword = !isPassword;
-                              });
+                            isPassowrd: cubit.isPassword,
+                            icon: cubit.isPassword? Icons.visibility : Icons.visibility_off,
+                            iconPressed: (){
+                              cubit.changeVisibility();
                             }
                         ),
                         const SizedBox(height: 20),
@@ -142,7 +141,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                               });
                             }
                         ),
-                        const SizedBox(height: 20,),
+                       const SizedBox(height: 20,),
                         defaultFormField(
                             controller: clinicWorkHoursFromController,
                             label: 'Work Hours From',
@@ -163,7 +162,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                             }
 
                         ),
-                        const SizedBox(height: 20),
+                       const SizedBox(height: 20),
                         defaultFormField(
                             controller: clinicWorkHoursToController,
                             label: 'Work Hours To',
@@ -206,9 +205,10 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                                       email: emailController.text,
                                       password: passWordController.text,
                                       password2: confirmPasswordController.text,
-                                      workHoursFrom: clinicWorkHoursFromController.text,
+                                     workHoursFrom: clinicWorkHoursFromController.text,
                                       workHoursTo: clinicWorkHoursToController.text,
-                                      address: clinicAddressController.text,
+                                     address: clinicAddressController.text,
+
                                     );
                                   }
                                   // Navigator.pushReplacement(
@@ -222,6 +222,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                               ),
                           fallback: (context) =>
                               const Center(child: CircularProgressIndicator()),
+
                         ),
 
                         // defaultButton(

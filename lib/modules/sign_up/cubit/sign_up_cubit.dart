@@ -26,7 +26,7 @@ class RegisterCubit extends Cubit<RegisterStates>{
     required String email,
     required String username,
     required String password,
-  }){
+  })   {
     emit(RegisterLoadingState());
     FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -63,21 +63,31 @@ class RegisterCubit extends Cubit<RegisterStates>{
 
   }){
     emit(RegisterLoadingState());
-
+    FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password)
+        .then((value){
+      print(value.user!.email);
+      print(value.user!.uid);
+      emit(RegisterSuccessState());
+    })
+        .catchError((error){
+      emit(RegisterErrorState(error.toString()));
+    });
   }
 
-  void clinicRegister({
+   void clinicRegister({
     required String fName,
     required String lName,
-    required String username,
     required String email,
+    required String username,
     required String password,
     required String password2,
     required String workHoursFrom,
     required String workHoursTo,
     required String address,
 
-  }){
+  })   {
     emit(RegisterLoadingState());
     FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,

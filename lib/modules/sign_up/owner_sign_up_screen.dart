@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
-
 import 'cubit/sign_up_cubit.dart';
 
 class OwnerSignUpScreen extends StatefulWidget {
