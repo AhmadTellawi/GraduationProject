@@ -64,6 +64,7 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                     ),
                     SizedBox(height: 20,),
                     defaultFormField(
+                        controller: fNameController,
                         label: 'First Name',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -74,6 +75,7 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                     const SizedBox(height: 20),
 
                     defaultFormField(
+                      controller: lNameController,
                         label: 'Last Name',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -95,6 +97,7 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
+                      controller: userNameController,
                         hintText: 'Your store name in the app..',
                         label: 'Username',
                         validator: (value) {
@@ -212,12 +215,12 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                                   address: storeAddressController.text,
                                 );
                               }
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => const PetSignUpScreen()
-                              //     )
-                              // );
+                               Navigator.pushReplacement(
+                                   context,
+                                   MaterialPageRoute(
+                                       builder: (context) => const GigaPetLayout()
+                                   )
+                               );
                             },
                             text: 'Register',
                           ),

@@ -1,6 +1,7 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
@@ -64,6 +65,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                         ),
                          const SizedBox(height: 20,),
                          defaultFormField(
+                             controller: fNameController,
                              label: 'First Name',
                              validator: (value) {
                                if (value!.isEmpty) {
@@ -74,6 +76,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                          const SizedBox(height: 20),
 
                          defaultFormField(
+                             controller: lNameController,
                              label: 'Last Name',
                              validator: (value) {
                                if (value!.isEmpty) {
@@ -96,6 +99,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                          const SizedBox(height: 20),
                          defaultFormField(
                              hintText: 'Your clinic name in the app..',
+                             controller: userNameController,
                              label: 'Username',
                              validator: (value) {
                                if (value!.isEmpty) {
@@ -211,12 +215,12 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
 
                                     );
                                   }
-                                  // Navigator.pushReplacement(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => const PetSignUpScreen()
-                                  //     )
-                                  // );
+                                   Navigator.pushReplacement(
+                                       context,
+                                       MaterialPageRoute(
+                                           builder: (context) => const GigaPetLayout()
+                                       )
+                                   );
                                 },
                                 text: 'Register',
                               ),

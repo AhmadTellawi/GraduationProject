@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
@@ -25,6 +26,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   var formKey = GlobalKey<FormState>();
   var passWordController = TextEditingController();
+  var emailController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,10 @@ class _SignInScreenState extends State<SignInScreen> {
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
-          
+          if(state is LoginErrorState)
+            {
+               Fluttertoast.showToast(msg: state.toString() );
+            }
         },
         builder: (context, state) {
           var cubit = LoginCubit.get(context);
@@ -63,6 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     const SizedBox(height: 40,),
                     defaultFormField(
                       keyboardtype: TextInputType.emailAddress,
+                        controller: emailController,
                       label: 'Email Address',
                       validator: (value){
                         if(value!.isEmpty){
@@ -88,18 +95,25 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     const SizedBox(height: 20),
                     defaultButton(
-                      text: 'LOGIN',
                       onPressed: (){
                         if(formKey.currentState!.validate()){
-                          Navigator.pushReplacement(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => const GigaPetLayout()
-                            )
-                          );
+                              LoginCubit.get(context).userLogin(
+                              email: emailController.text,
+                              password: passWordController.text);
+
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const GigaPetLayout()
+                                )
+                            );
+
                         }
-                      }
+                      },
+                      text: 'LOGIN',
                     ),
+                    if (state is LoginLoadingState)
+                      Center(child: CircularProgressIndicator()),
                     Row(
                       children: [
                         const Text('don\'t have an account?'),

@@ -2,6 +2,8 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
+import 'package:gigapet/modules/sign_in/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
@@ -35,7 +37,17 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
       create: (context) => RegisterCubit(),
       child: BlocConsumer<RegisterCubit, RegisterStates>(
         listener: (context, state) {
-          
+          if (state is CreateUserSuccessState)
+            {
+              Navigator.pushReplacement(
+                context,
+                  MaterialPageRoute(
+                  builder: (context) => const GigaPetLayout())
+
+              );
+             // navigate(context,
+             //GigaPetLayout());
+            }
         },
         builder: (context, state) {
           var cubit = RegisterCubit.get(context); 
@@ -156,12 +168,12 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                                   password: passWordController.text,
                                 );
                               }
-                            // Navigator.pushReplacement(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => const PetSignUpScreen()
-                            //     )
-                            // );
+                             Navigator.pushReplacement(
+                                 context,
+                                 MaterialPageRoute(
+                                     builder: (context) => const GigaPetLayout()
+                                 )
+                             );
                           },
                        text: 'Register',
                           ),
