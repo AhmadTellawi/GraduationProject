@@ -6,28 +6,27 @@ import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/identity/identity_screen.dart';
-import 'package:gigapet/modules/sign_in/reset.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
 import 'cubit/sign_in_cubit.dart';
 import 'cubit/states.dart';
 
-class SignInScreen extends StatefulWidget {
+class resetScreen extends StatefulWidget {
 
-  const SignInScreen({Key? key}) : super(key: key);
+  const resetScreen({Key? key}) : super(key: key);
 
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<resetScreen> createState() => _resetScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _resetScreenState extends State<resetScreen> {
 
 
 
   var formKey = GlobalKey<FormState>();
-  var passWordController = TextEditingController();
+
   var emailController = TextEditingController();
 
 
@@ -55,19 +54,15 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
                     const Text(
-                      "Sign In",
+                      "Reset Password",
                       style: TextStyle(
-                        fontSize: 35
+                          fontSize: 35,
                       ),
                     ),
-                    const Text(
-                      'Gigapet',
-                      style: TextStyle(
-                        fontSize: 45,
-                        fontWeight: FontWeight.bold
-                      )
-                    ),
+
+
                     const SizedBox(height: 40,),
                     defaultFormField(
                       keyboardtype: TextInputType.emailAddress,
@@ -79,41 +74,17 @@ class _SignInScreenState extends State<SignInScreen> {
                         }
                       }
                     ),
-                    const SizedBox(height: 20),
-                     defaultFormField(
-                       validator: (value){
-                        if(value!.isEmpty){
-                          return 'Password Must Not Be Empty';
-                        }
-                      },
-                      controller: passWordController,
-                      label: 'Password',
-                      keyboardtype: TextInputType.visiblePassword,
-                      isPassowrd: cubit.isPassword,
-                      icon: cubit.isPassword? Icons.visibility : Icons.visibility_off,
-                      iconPressed: (){
-                        cubit.changeVisibility();
-                      }
-                    ),
+
                     const SizedBox(height: 20),
                     defaultButton(
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           {
                             //emit(LoginLoadingState());
-                            FirebaseAuth.instance.signInWithEmailAndPassword
-                              (
-                              email: emailController.text,
-                              password: passWordController.text,
-                            ).then((value){
-                              print(value.user!.email);
-                              print(value.user!.uid);
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const GigaPetLayout()
-                                  )
-                              );
+                            FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text,)
+                              .then((value){
+
+                              Navigator.of(context).pop();
                               //emit(LoginSuccessState());
                             })
                                 .catchError((error){
@@ -127,7 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                         }
                       },
-                      text: 'LOGIN',
+                      text: 'Send Request',
                     ),
                     if (state is LoginLoadingState)
                       Center(child: CircularProgressIndicator()),
@@ -151,49 +122,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     )
                       ],
                     ),
-                    defaultButton(
-                      text: 'TAKE A LOOK',
-                      onPressed: (){
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => const GigaPetLayout()
-                            )
-                          );
-                      }
-                    ),
-                    Row(
-                      children: [
-                        const Text(
-                          'forgot your password?'
-                        ),
-                        TextButton(
-                            onPressed: (){
-                              setState(() {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => resetScreen(),
-                                    )
-                                );
-                              });
-                            },
-                            // onPressed: (){
-                            //   setState(() {
-                            //     Navigator.push(
-                            //         context,
-                            //         MaterialPageRoute(
-                            //           builder: (context) => IdentityScreen(),
-                            //         )
-                            //     );
-                            //   });
-                            // },
-                          child: const Text(
-                            'Reset',
-                          )
-                        )
-                      ],
-                    )
+
+
                   ],
                 ),
               ),
