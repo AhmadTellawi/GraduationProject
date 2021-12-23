@@ -64,137 +64,146 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                     ),
                     SizedBox(height: 20,),
                     defaultFormField(
-                        controller: fNameController,
-                        label: 'First Name',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'First Name Must Not Be Empty';
-                          }
+                      prefix: Icons.person,
+                      controller: fNameController,
+                      label: 'First Name',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'First Name Must Not Be Empty';
                         }
+                      }
                     ),
                     const SizedBox(height: 20),
 
                     defaultFormField(
+                      prefix: Icons.person,
                       controller: lNameController,
-                        label: 'Last Name',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Last Name Must Not Be Empty';
-                          }
+                      label: 'Last Name',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Last Name Must Not Be Empty';
                         }
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        keyboardtype: TextInputType.emailAddress,
-                        hintText: 'This will be used when you sign in..',
-                        controller: emailController,
-                        label: 'Email Address',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Email Must Not Be Empty';
-                          }
+                      prefix: Icons.mail,
+                      keyboardtype: TextInputType.emailAddress,
+                      hintText: 'This will be used when you sign in..',
+                      controller: emailController,
+                      label: 'Email Address',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Email Must Not Be Empty';
                         }
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
+                      prefix: Icons.person,
                       controller: userNameController,
-                        hintText: 'Your store name in the app..',
-                        label: 'Username',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Username Must Not Be Empty';
-                          }
+                      hintText: 'Your store name in the app..',
+                      label: 'Username',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Username Must Not Be Empty';
                         }
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Password Must Not Be Empty';
-                          }
-                        },
-                        controller: passWordController,
-                        label: 'Password',
-                        keyboardtype: TextInputType.visiblePassword,
-                        isPassowrd: isPassword,
-                        icon: isPassword ? Icons.visibility : Icons
-                            .visibility_off,
-                        iconPressed: () {
-                          setState(() {
-                            isPassword = !isPassword;
-                          });
+                      prefix: Icons.lock_outline,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Password Must Not Be Empty';
                         }
+                      },
+                      controller: passWordController,
+                      label: 'Password',
+                      keyboardtype: TextInputType.visiblePassword,
+                      isPassowrd: isPassword,
+                      icon: isPassword ? Icons.visibility : Icons
+                          .visibility_off,
+                      iconPressed: () {
+                        setState(() {
+                          isPassword = !isPassword;
+                        });
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please Confirm Your Password';
-                          } else if (passWordController.text !=
-                              confirmPasswordController.text) {
-                            return 'Passwords do not match';
-                          }
-                        },
-                        controller: confirmPasswordController,
-                        keyboardtype: TextInputType.visiblePassword,
-                        label: 'Confirm Password',
-                        isPassowrd: isPasswordConfirm,
-                        icon: isPasswordConfirm ? Icons.visibility : Icons
-                            .visibility_off,
-                        iconPressed: () {
-                          setState(() {
-                            isPasswordConfirm = !isPasswordConfirm;
-                          });
+                      prefix: Icons.lock,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please Confirm Your Password';
+                        } else if (passWordController.text !=
+                            confirmPasswordController.text) {
+                          return 'Passwords do not match';
                         }
+                      },
+                      controller: confirmPasswordController,
+                      keyboardtype: TextInputType.visiblePassword,
+                      label: 'Confirm Password',
+                      isPassowrd: isPasswordConfirm,
+                      icon: isPasswordConfirm ? Icons.visibility : Icons
+                          .visibility_off,
+                      iconPressed: () {
+                        setState(() {
+                          isPasswordConfirm = !isPasswordConfirm;
+                        });
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        controller: storeWorkHoursFromController,
-                        label: 'Work Hours From',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Work Hours Must Not Be Empty';
-                          }
-                        },
-                        onTap: () {
-                          showTimePicker(
-                              context: context,
-                              initialTime: TimeOfDay.now()
-                          ).then((value) {
-                            storeWorkHoursFromController.text =
-                                value.toString();
-                          });
+                      prefix: Icons.access_time,
+                      controller: storeWorkHoursFromController,
+                      label: 'Work Hours From',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Work Hours Must Not Be Empty';
                         }
+                      },
+                      onTap: () {
+                        showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay.now()
+                        ).then((value) {
+                          storeWorkHoursFromController.text =
+                              value!.format(context);
+                        });
+                      }
 
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        controller: storeWorkHoursToController,
-                        label: 'Work Hours To',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Work Hours Must Not Be Empty';
-                          }
-                        },
-                        onTap: () {
-                          showTimePicker(
-                              context: context,
-                              initialTime: TimeOfDay.now()
-                          ).then((value) {
-                            storeWorkHoursToController.text =
-                                value.toString();
-                          });
+                      prefix: Icons.access_time_filled,
+                      controller: storeWorkHoursToController,
+                      label: 'Work Hours To',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Work Hours Must Not Be Empty';
                         }
+                      },
+                      onTap: () {
+                        showTimePicker(
+                            context: context,
+                            initialTime: TimeOfDay.now()
+                        ).then((value) {
+                          storeWorkHoursToController.text =
+                              value!.format(context);
+                        });
+                      }
                     ),
                     const SizedBox(height: 20),
                     defaultFormField(
-                        controller: storeAddressController,
-                        label: 'Store Address',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Address Must Not Be Empty';
-                          }
+                      prefix: Icons.location_on,
+                      controller: storeAddressController,
+                      label: 'Store Address',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Address Must Not Be Empty';
                         }
+                      }
                     ),
                     const SizedBox(height: 20),
                     BuildCondition(

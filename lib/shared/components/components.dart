@@ -37,6 +37,7 @@ Widget defaultFormField(
     String? hintText,
     TextInputType keyboardtype = TextInputType.text,
     IconData? icon,
+    IconData? prefix,
     void Function()? iconPressed
   }
 ){
@@ -51,6 +52,7 @@ Widget defaultFormField(
         icon: Icon(icon),
         onPressed: iconPressed,
       ),
+      prefixIcon: Icon(prefix),
       labelText: label,
       labelStyle: const TextStyle(
         fontSize: 15.5,

@@ -65,50 +65,55 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                         ),
                          const SizedBox(height: 20,),
                          defaultFormField(
-                             controller: fNameController,
-                             label: 'First Name',
-                             validator: (value) {
-                               if (value!.isEmpty) {
-                                 return 'First Name Must Not Be Empty';
-                               }
-                             }
+                           prefix: Icons.person,
+                            controller: fNameController,
+                            label: 'First Name',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'First Name Must Not Be Empty';
+                              }
+                            }
                          ),
                          const SizedBox(height: 20),
 
                          defaultFormField(
-                             controller: lNameController,
-                             label: 'Last Name',
-                             validator: (value) {
-                               if (value!.isEmpty) {
-                                 return 'Last Name Must Not Be Empty';
-                               }
+                           prefix: Icons.person,
+                            controller: lNameController,
+                            label: 'Last Name',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Last Name Must Not Be Empty';
+                              }
                              }
                         ),
                         const SizedBox(height: 20),
                         defaultFormField(
-                            hintText: 'This will be used when you sign in..',
-                            keyboardtype: TextInputType.emailAddress,
-                            controller: emailController,
-                            label: 'Email Address',
-                            validator: (value){
-                              if(value!.isEmpty){
-                                return 'Email Must Not Be Empty';
-                              }
+                          prefix: Icons.mail,
+                          hintText: 'This will be used when you sign in..',
+                          keyboardtype: TextInputType.emailAddress,
+                          controller: emailController,
+                          label: 'Email Address',
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return 'Email Must Not Be Empty';
                             }
+                          }
                         ),
                          const SizedBox(height: 20),
                          defaultFormField(
-                             hintText: 'Your clinic name in the app..',
-                             controller: userNameController,
-                             label: 'Username',
-                             validator: (value) {
-                               if (value!.isEmpty) {
-                                 return 'Username Must Not Be Empty';
-                               }
-                             }
+                          prefix: Icons.person,
+                            hintText: 'Your clinic name in the app..',
+                            controller: userNameController,
+                            label: 'Username',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Username Must Not Be Empty';
+                              }
+                            }
                          ),
                         const SizedBox(height: 20),
                         defaultFormField(
+                          prefix: Icons.lock_outline,
                             validator: (value){
                               if(value!.isEmpty){
                                 return 'Password Must Not Be Empty';
@@ -125,6 +130,7 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                         ),
                         const SizedBox(height: 20),
                         defaultFormField(
+                          prefix: Icons.lock,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Please Confirm Your Password';
@@ -147,13 +153,14 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                         ),
                        const SizedBox(height: 20,),
                         defaultFormField(
-                            controller: clinicWorkHoursFromController,
-                            label: 'Work Hours From',
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Work Hours Must Not Be Empty';
-                              }
-                            },
+                          prefix: Icons.access_time,
+                          controller: clinicWorkHoursFromController,
+                          label: 'Work Hours From',
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Work Hours Must Not Be Empty';
+                            }
+                          },
                             onTap: () {
                               showTimePicker(
                                   context: context,
@@ -161,13 +168,14 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
 
                               ).then((value) {
                                 clinicWorkHoursFromController.text =
-                                    value.toString();
+                                    value!.format(context);
                               });
                             }
 
                         ),
                        const SizedBox(height: 20),
                         defaultFormField(
+                          prefix: Icons.access_time_filled_outlined,
                             controller: clinicWorkHoursToController,
                             label: 'Work Hours To',
                             validator: (value) {
@@ -181,12 +189,13 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
                                   initialTime: TimeOfDay.now()
                               ).then((value) {
                                 clinicWorkHoursToController.text =
-                                    value.toString();
+                                    value!.format(context);
                               });
                             }
                         ),
                         const SizedBox(height: 20),
                         defaultFormField(
+                          prefix: Icons.location_on,
                             controller: clinicAddressController,
                             label: 'Clinic Address',
                             validator: (value) {

@@ -73,6 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       keyboardtype: TextInputType.emailAddress,
                         controller: emailController,
                       label: 'Email Address',
+                      prefix: Icons.mail,
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Email Must Not Be Empty';
@@ -81,6 +82,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     const SizedBox(height: 20),
                      defaultFormField(
+                       prefix: Icons.lock,
                        validator: (value){
                         if(value!.isEmpty){
                           return 'Password Must Not Be Empty';

@@ -76,6 +76,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                     ),
                     SizedBox(height: 20,),
                       defaultFormField(
+                        prefix: Icons.person,
                         label: 'First Name',
                         controller: fNameController,
                         validator: (value){
@@ -87,6 +88,8 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                       const SizedBox(height: 20),
           
                        defaultFormField(
+
+                        prefix: Icons.person,
                         label: 'Last Name',
                         controller: lNameController,
                         validator: (value){
@@ -97,6 +100,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                       ),
                       const SizedBox(height: 20),
                       defaultFormField(
+                        prefix: Icons.mail,
                         hintText: 'This will be used when you sign in..',
                         keyboardtype: TextInputType.emailAddress,
                         controller: emailController,
@@ -109,6 +113,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                       ),
                       const SizedBox(height: 20),
                       defaultFormField(
+                        prefix: Icons.person,
                         label: 'Username',
                         hintText: 'What people see in the app..',
                         controller: userNameController,
@@ -120,6 +125,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                       ),
                       const SizedBox(height: 20),
                        defaultFormField(
+                         prefix: Icons.lock_outline,
                          validator: (value){
                           if(value!.isEmpty){
                             return 'Password Must Not Be Empty';
@@ -136,6 +142,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                       ),
                       const SizedBox(height: 20), 
                       defaultFormField(
+                        prefix: Icons.lock,
                         validator: (value){
                           if(value!.isEmpty){
                             return 'Please Confirm Your Password';
