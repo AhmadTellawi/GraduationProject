@@ -32,11 +32,8 @@ class LoginCubit extends Cubit<LoginStates>{
     .catchError((error){
       emit(LoginErrorState(error.toString()));
       print(error.toString());
-      if (error is PlatformException)
-        {
-          if (error.code == 'user-not-found')
-            print('Invalid Inputs');
-        }
-    });
+      print('Invalid Inputs');
+    }
+);
   }
 }

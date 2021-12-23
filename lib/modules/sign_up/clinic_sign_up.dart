@@ -215,12 +215,12 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
 
                                     );
                                   }
-                                   Navigator.pushReplacement(
-                                       context,
-                                       MaterialPageRoute(
-                                           builder: (context) => const GigaPetLayout()
-                                       )
-                                   );
+                                   // Navigator.pushReplacement(
+                                   //     context,
+                                   //     MaterialPageRoute(
+                                   //         builder: (context) => const GigaPetLayout()
+                                   //     )
+                                   // );
                                 },
                                 text: 'Register',
                               ),

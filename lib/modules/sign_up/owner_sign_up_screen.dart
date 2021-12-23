@@ -167,13 +167,13 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                                   email: emailController.text,
                                   password: passWordController.text,
                                 );
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => const GigaPetLayout()
+                                //     )
+                                // );
                               }
-                             Navigator.pushReplacement(
-                                 context,
-                                 MaterialPageRoute(
-                                     builder: (context) => const GigaPetLayout()
-                                 )
-                             );
                           },
                        text: 'Register',
                           ),

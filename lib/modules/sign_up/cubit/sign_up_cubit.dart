@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
 import 'package:gigapet/models/models.GigaPet/PetOwner_Model.dart';
 import 'package:gigapet/models/models.GigaPet/Store_model.dart';
@@ -11,7 +12,6 @@ class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit() : super(RegisterInitialState());
 
   static RegisterCubit get(context) => BlocProvider.of(context);
-
 
   bool isPassword = true;
   bool isConfirmPassword = true;
@@ -49,8 +49,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
         Username: username,
       );
       emit(RegisterSuccessState());
+      Fluttertoast.showToast(msg: "You have been registered, please go back again and log in" );
+
     })
         .catchError((error) {
+      Fluttertoast.showToast(msg: "Invalid Inputs, please try again " );
       emit(RegisterErrorState(error.toString()));
     });
   }
@@ -124,9 +127,13 @@ FirebaseFirestore.instance
         Address: address,
       );
       emit(RegisterSuccessState());
+      Fluttertoast.showToast(msg: "You have been registered, please go back again and log in" );
+
     })
         .catchError((error) {
       emit(RegisterErrorState(error.toString()));
+      Fluttertoast.showToast(msg: "Invalid Inputs, please re-check again" );
+
     });
   }
 
@@ -157,10 +164,8 @@ FirebaseFirestore.instance
         .set(model.toMap())
         .then((value)
     {
-
     })
         .catchError((error) {
-
     });
   }
 
@@ -194,9 +199,12 @@ FirebaseFirestore.instance
         Address: address,
       );
       emit(RegisterSuccessState());
+      Fluttertoast.showToast(msg: "You have been registered, please go back again and log in" );
     })
         .catchError((error) {
       emit(RegisterErrorState(error.toString()));
+      Fluttertoast.showToast(msg: "Invalid Inputs, please re-check again" );
+
     });
    }
 

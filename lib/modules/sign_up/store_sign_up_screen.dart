@@ -215,12 +215,12 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                                   address: storeAddressController.text,
                                 );
                               }
-                               Navigator.pushReplacement(
-                                   context,
-                                   MaterialPageRoute(
-                                       builder: (context) => const GigaPetLayout()
-                                   )
-                               );
+                               // Navigator.pushReplacement(
+                               //     context,
+                               //     MaterialPageRoute(
+                               //         builder: (context) => const GigaPetLayout()
+                               //     )
+                               // );
                             },
                             text: 'Register',
                           ),

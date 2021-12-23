@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -97,16 +98,31 @@ class _SignInScreenState extends State<SignInScreen> {
                     defaultButton(
                       onPressed: (){
                         if(formKey.currentState!.validate()){
-                              LoginCubit.get(context).userLogin(
+                          {
+                            //emit(LoginLoadingState());
+                            FirebaseAuth.instance.signInWithEmailAndPassword
+                              (
                               email: emailController.text,
-                              password: passWordController.text);
-
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const GigaPetLayout()
-                                )
+                              password: passWordController.text,
+                            ).then((value){
+                              print(value.user!.email);
+                              print(value.user!.uid);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const GigaPetLayout()
+                                  )
+                              );
+                              //emit(LoginSuccessState());
+                            })
+                                .catchError((error){
+                              //emit(LoginErrorState(error.toString()));
+                              Fluttertoast.showToast(msg: "invalid inputs, please Try Again" );
+                              print(error.toString());
+                              print('Invalid Inputs');
+                            }
                             );
+                          }
 
                         }
                       },
