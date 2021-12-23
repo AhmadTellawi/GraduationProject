@@ -164,8 +164,10 @@ FirebaseFirestore.instance
         .set(model.toMap())
         .then((value)
     {
+
     })
         .catchError((error) {
+
     });
   }
 
