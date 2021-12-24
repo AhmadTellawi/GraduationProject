@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gigapet/layout/cubit/cubit.dart';
-import 'package:gigapet/layout/cubit/states.dart';
+import 'package:gigapet/clinic_layout/layout/cubit/cubit.dart';
+import 'package:gigapet/clinic_layout/layout/cubit/states.dart';
+import 'package:gigapet/store_layout/layout/cubit/cubit.dart';
+import 'package:gigapet/store_layout/layout/cubit/states.dart';
 
-class GigaPetLayout extends StatelessWidget {
-  const GigaPetLayout({ Key? key }) : super(key: key);
+
+class StoreLayout extends StatelessWidget {
+  const StoreLayout({ Key? key }) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppCubit(),
-      child: BlocConsumer<AppCubit, AppStates>(
+      create: (context) => StoreCubit(),
+      child: BlocConsumer<StoreCubit, Storetates>(
         listener: (context, state) {
           
         },
         builder: (context, state) {
-          var cubit = AppCubit.get(context);
+          var cubit = StoreCubit.get(context);
           return Scaffold(
         appBar: AppBar(
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(
-                onPressed: (){}, 
-                child: Text('Logout')
-              ),
-            )
-          ],
           title:  Text(
             '${cubit.titles[cubit.currentIndex]}',
             style: TextStyle(

@@ -7,8 +7,10 @@ import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
 import 'package:gigapet/modules/identity/identity_screen.dart';
-import 'package:gigapet/modules/profile/edit_profile_screen.dart';
+import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
+import 'package:gigapet/modules/profile/edit_owner_profile_screen.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
+import 'package:gigapet/modules/sign_in/sign_in_identification_screen.dart';
 import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
@@ -60,7 +62,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: SignInScreen()
+      home: ProfileScreen()
     );
   }
 }

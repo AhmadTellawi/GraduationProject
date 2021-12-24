@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
-class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({ Key? key }) : super(key: key);
+class PetOwnerEditProfileScreen extends StatefulWidget {
+  const PetOwnerEditProfileScreen({ Key? key }) : super(key: key);
 
   @override
-  _EditProfileScreenState createState() => _EditProfileScreenState();
+  _PetOwnerEditProfileScreenState createState() => _PetOwnerEditProfileScreenState();
 }
 
-class _EditProfileScreenState extends State<EditProfileScreen> {
+class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
