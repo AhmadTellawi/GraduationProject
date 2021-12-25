@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gigapet/database/database.dart';
-import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/models/models.GigaPet/PetOwner_Model.dart';
 import 'package:gigapet/modules/profile/edit_owner_profile_screen.dart';
-import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
 class ProfileScreen extends StatelessWidget {
