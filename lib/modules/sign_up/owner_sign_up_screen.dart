@@ -168,8 +168,8 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                             if (formKey.currentState!.validate())
                               {
                                 RegisterCubit.get(context).ownerRegister(
-                                  fName: userNameController.text,
-                                  lName: userNameController.text,
+                                  fName: fNameController.text,
+                                  lName: lNameController.text,
                                   username: userNameController.text,
                                   email: emailController.text,
                                   password: passWordController.text,

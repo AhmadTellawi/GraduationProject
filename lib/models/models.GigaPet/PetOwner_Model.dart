@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-class PetOwnerModel {
+class PetOwnerModel
+{
+
   late String fName;
   late String lName;
   late String Username;
@@ -16,25 +18,26 @@ class PetOwnerModel {
     this.lName,
     this.Username,
     this.uID,
-  );
+      );
 
-  factory PetOwnerModel.fromMap(Map<String, dynamic> data, String personId) {
+  factory PetOwnerModel.fromJson(Map<String, dynamic> data, String personId) {
     final String email = data['email'];
-    final String fName = data['fName'];
-    final String lName = data['lName'];
+    final String fName = data['fname'];
+    final String lName = data['lname'];
     final String Username = data['Username'];
     final String uID = data['uID'];
 
     return PetOwnerModel(email, fName, lName, Username, uID);
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'fname': fName,
-      'lname': lName,
-      'email': email,
-      'Username': Username,
-      'uID': uID,
-    };
+  Map<String, dynamic> toMap()
+  {
+   return {
+     'fname': fName,
+     'lname': lName,
+     'email': email,
+     'Username':Username,
+     'uID': uID,
+   };
   }
 }

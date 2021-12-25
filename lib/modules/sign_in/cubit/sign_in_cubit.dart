@@ -7,7 +7,6 @@ import 'package:gigapet/modules/sign_in/cubit/states.dart';
 class LoginCubit extends Cubit<LoginStates>{
   LoginCubit() : super(LoginInitialState());
   static LoginCubit get(context) => BlocProvider.of(context);
-
   bool isPassword = true;
   bool isConfirmPassword = true;
   void changeVisibility(){

@@ -28,9 +28,9 @@ class StoreOwnerModel
 
   StoreOwnerModel.fromJson(Map<String, dynamic>json){
     email = json['email'];
-    fName = json['fName'];
-    lName = json['lName'];
-    Username = json['username'];
+    fName = json['fname'];
+    lName = json['lname'];
+    Username = json['Username'];
     uID = json['uID'];
     workHoursFrom = json['workHoursFrom'];
     workHoursTo = json['workHoursTo'];

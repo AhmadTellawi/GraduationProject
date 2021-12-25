@@ -1,6 +1,8 @@
 import 'package:buildcondition/buildcondition.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/database/database.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/shared/components/components.dart';
 
@@ -15,6 +17,7 @@ class StoreSignUpScreen extends StatefulWidget {
 }
 
 class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
+
 
   bool isPassword = true;
   bool isPasswordConfirm = true;

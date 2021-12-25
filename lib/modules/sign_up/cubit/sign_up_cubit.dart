@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
@@ -10,6 +11,7 @@ import 'package:gigapet/modules/sign_up/cubit/states.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit() : super(RegisterInitialState());
+
 
   static RegisterCubit get(context) => BlocProvider.of(context);
 
@@ -244,6 +246,7 @@ FirebaseFirestore.instance
     });
   }
 }
+
 
 
 //Sign-up

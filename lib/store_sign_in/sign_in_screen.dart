@@ -116,7 +116,7 @@ class _StoreSignInScreenState extends State<StoreSignInScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const ClinicLayout()
+                                      builder: (context) => StoreLayout()
                                   )
                               );
                               //emit(LoginSuccessState());

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,7 @@ class AppCubit extends Cubit<AppStates>{
   List<Widget> screens = [
     CommunityScreen(),
     const HomeScreen(),
-    const ProfileScreen()
+     ProfileScreen()
   ]; 
   List<String> titles = [
     'Community',
@@ -60,7 +61,15 @@ class AppCubit extends Cubit<AppStates>{
     isConfirmPassword = !isConfirmPassword;
     emit(PasswordVisibilityState());
   }
-
+  late String username;
+  void getData() async {
+    await for (var messages in FirebaseFirestore.instance.collection('PetOwnerUsers').snapshots())
+    {
+      var message = messages.docs.toList().elementAt(2).get('Username') ;
+      print(message.toString());
+      username = message.toString();
+    }
+  }
 
    
 

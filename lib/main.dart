@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
@@ -15,6 +16,7 @@ import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/bloc_observer.dart';
+import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
 import 'layout/cubit/cubit.dart';
 import 'modules/sign_in/cubit/sign_in_cubit.dart';
@@ -62,7 +64,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: ProfileScreen()
+      home: StoreSignInScreen()
     );
   }
 }
