@@ -81,7 +81,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                     ),
                     defaultFormField(
                       controller: lNameController,
-                      label: '${person!.lName}',
+                      label: '${person.lName}',
                       prefix: Icons.person
                     ),
                     SizedBox(
@@ -89,7 +89,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                     ),
                     defaultFormField(
                       controller: userNameController,
-                      label: '${person!.Username}',
+                      label: '${person.Username}',
                       prefix: Icons.person
                     ),
                     SizedBox(
@@ -107,7 +107,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                         ),
                         defaultFormField(
                           controller: petNameController,
-                          label: '${person!.petName}',
+                          label: '${person.petName}',
                           prefix: Icons.pets_outlined
                         ),
                         SizedBox(
@@ -115,7 +115,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                         ),
                         defaultFormField(
                           controller: petTypeController,
-                          label: '${person!.petType}',
+                          label: '${person.petType}',
                           prefix: Icons.pets_outlined
                         ),
                             SizedBox(
@@ -123,7 +123,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                         ),
                         defaultFormField(
                           controller: petBreedController,
-                          label: '${person!.petBreed}',
+                          label: '${person.petBreed}',
                           prefix: Icons.pets_outlined
                         ),
                         SizedBox(
@@ -131,7 +131,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                         ),
                         defaultFormField(
                           controller: dateOfBirthController,
-                          label: '${person!.petBirth}',
+                          label: '${person.petBirth}',
                           prefix: Icons.date_range_outlined,
                           onTap: (){
                             showDatePicker(

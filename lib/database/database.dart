@@ -53,7 +53,7 @@ class FirestoreDatabase implements Database {
   Stream<ClinicOwnerModel> ClinicOwnerStream({required String personId}) =>
       _service.documentStream(
         path: '/ClinicOwnerUsers/$personId',
-        builder: (data, documentId) => ClinicOwnerModel.fromJson(data),
+        builder: (data, documentId) => ClinicOwnerModel.fromJson(data ),
       );
 
   @override
