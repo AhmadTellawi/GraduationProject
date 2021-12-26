@@ -34,6 +34,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String email,
     required String username,
     required String password,
+    required String petName,
+    required String petType,
+    required String petBreed,
+    required String petBirth,
+
   }) {
     emit(RegisterLoadingState());
     FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -49,6 +54,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
         fName: fName,
         lName: lName,
         Username: username,
+          petName:petName,
+          petType:petType,
+          petBreed:petBreed,
+        petBirth: petBirth,
+
       );
       emit(RegisterSuccessState());
       Fluttertoast.showToast(msg: "You have been registered, please go back again and log in" );
@@ -66,6 +76,12 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String Username,
     required String email,
     required String uID,
+    required String petName,
+    required String petType,
+    required String petBreed,
+    required String petBirth,
+
+
   })
 {
 PetOwnerModel model = PetOwnerModel(
@@ -74,7 +90,10 @@ fName,
 lName,
 Username,
 uID,
-
+  petName,
+  petType,
+  petBreed,
+  petBirth,
 );
 FirebaseFirestore.instance
     .collection("PetOwnerUsers")

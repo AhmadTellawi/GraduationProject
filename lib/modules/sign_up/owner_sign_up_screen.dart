@@ -8,6 +8,7 @@ import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
+import 'package:intl/intl.dart';
 import 'cubit/sign_up_cubit.dart';
 
 class OwnerSignUpScreen extends StatefulWidget {
@@ -30,6 +31,13 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
   var lNameController = TextEditingController();
   var emailController = TextEditingController();
   var userNameController = TextEditingController();
+  var petNameController = TextEditingController();
+
+  var petTypeController = TextEditingController();
+
+  var petBreedController = TextEditingController();
+
+  var dateOfBirthController = TextEditingController();
 
 
   @override
@@ -159,6 +167,49 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                           cubit.changeConfirmVisibility();
                         }
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      defaultFormField(
+                          controller: petNameController,
+                          label: 'Pet Name',
+                          prefix: Icons.pets_outlined
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      defaultFormField(
+                          controller: petTypeController,
+                          label: 'Pet Type',
+                          prefix: Icons.pets_outlined
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      defaultFormField(
+                          controller: petBreedController,
+                          label: 'Pet Breed',
+                          prefix: Icons.pets_outlined
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      defaultFormField(
+                          controller: dateOfBirthController,
+                          label: 'Date of Birth',
+                          prefix: Icons.date_range_outlined,
+                          onTap: (){
+                            showDatePicker(
+                                context: context,
+                                initialDate: DateTime.parse('1990-01-01'),
+                                firstDate: DateTime.parse('1990-01-01'),
+                                lastDate: DateTime.now()
+                            ).then((value) {
+                              dateOfBirthController.text = DateFormat.MMMMEEEEd().format(value!);
+                            });
+                          }
+                      ),
+
                       const SizedBox(height: 20),
                      BuildCondition(
                          condition: state is! RegisterLoadingState,
@@ -173,6 +224,10 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                                   username: userNameController.text,
                                   email: emailController.text,
                                   password: passWordController.text,
+                                  petName:  petNameController.text,
+                                  petType: petTypeController.text,
+                                  petBreed: petBreedController.text,
+                                  petBirth: dateOfBirthController.text,
                                 );
                                 Navigator.pushReplacement(
                                   context, 

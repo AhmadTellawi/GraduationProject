@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 20,
                                 ),
                                 Text(
-                                  'Pet Name',
+                                  '${person.petName}',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -99,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 20,
                             ),
                             Text(
-                              'Type: ',
+                              '${person.petType}',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
@@ -107,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 20,
                             ),
                             Text(
-                              'Breed: ',
+                              '${person.petBreed}',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
@@ -115,7 +115,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 20,
                             ),
                             Text(
-                              'Date of Birth: ',
+                              '${person.petBirth}',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
