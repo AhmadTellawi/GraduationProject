@@ -7,6 +7,7 @@ import 'package:gigapet/modules/sign_up/clinic_sign_up.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/modules/sign_up/store_sign_up_screen.dart';
 import 'package:gigapet/store_layout/layout/gigapet/store_layout.dart';
+import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
 class Sign_In_Identification_Screen extends StatelessWidget {
   const Sign_In_Identification_Screen({ Key? key }) : super(key: key);
@@ -15,6 +16,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Padding(
@@ -142,7 +144,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                       Navigator.push(
                         context, 
                         MaterialPageRoute(
-                          builder: (context) => StoreLayout(),
+                          builder: (context) => StoreSignInScreen(),
                         )
                       );
                     },

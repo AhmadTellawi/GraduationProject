@@ -102,7 +102,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           {
-                            //emit(LoginLoadingState());
                             FirebaseAuth.instance.signInWithEmailAndPassword
                               (
                               email: emailController.text,
@@ -116,10 +115,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                       builder: (context) => const GigaPetLayout()
                                   )
                               );
-                              //emit(LoginSuccessState());
                             })
                                 .catchError((error){
-                              //emit(LoginErrorState(error.toString()));
                               Fluttertoast.showToast(msg: "invalid inputs, please Try Again" );
                               print(error.toString());
                               print('Invalid Inputs');

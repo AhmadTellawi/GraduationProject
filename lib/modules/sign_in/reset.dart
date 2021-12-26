@@ -55,18 +55,31 @@ class _resetScreenState extends State<resetScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    const Text(
-                      "Reset Password",
-                      style: TextStyle(
-                          fontSize: 35,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Reset",
+                          style: TextStyle(
+                              fontSize: 26,
+                          ),
+                        ),
+                        const Text(
+                          "Password",
+                          style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ],
                     ),
 
 
                     const SizedBox(height: 40,),
                     defaultFormField(
                       keyboardtype: TextInputType.emailAddress,
-                        controller: emailController,
+                      controller: emailController,
+                      prefix: Icons.mail,
                       label: 'Email Address',
                       validator: (value){
                         if(value!.isEmpty){
@@ -75,20 +88,19 @@ class _resetScreenState extends State<resetScreen> {
                       }
                     ),
 
-                    const SizedBox(height: 20),
+                    const SizedBox(
+                      height: 20
+                    ),
                     defaultButton(
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           {
-                            //emit(LoginLoadingState());
                             FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text,)
                               .then((value){
 
                               Navigator.of(context).pop();
-                              //emit(LoginSuccessState());
                             })
                                 .catchError((error){
-                              //emit(LoginErrorState(error.toString()));
                               Fluttertoast.showToast(msg: "invalid inputs, please Try Again" );
                               print(error.toString());
                               print('Invalid Inputs');
@@ -98,7 +110,7 @@ class _resetScreenState extends State<resetScreen> {
 
                         }
                       },
-                      text: 'Send Request',
+                      text: 'Send Reset Request',
                     ),
                     if (state is LoginLoadingState)
                       Center(child: CircularProgressIndicator()),

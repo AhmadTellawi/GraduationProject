@@ -34,6 +34,7 @@ dependencies:
   flutter_bloc: ^7.0.0
   dio: ^4.0.4
   buildcondition: ^0.0.4
+  smooth_page_indicator: ^1.0.0+2
 
 
 

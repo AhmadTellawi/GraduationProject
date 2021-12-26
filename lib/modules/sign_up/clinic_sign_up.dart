@@ -1,6 +1,7 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
@@ -224,33 +225,19 @@ class _ClinicSignUpScreenState extends State<ClinicSignUpScreen> {
 
                                     );
                                   }
-                                   // Navigator.pushReplacement(
-                                   //     context,
-                                   //     MaterialPageRoute(
-                                   //         builder: (context) => const GigaPetLayout()
-                                   //     )
-                                   // );
+                                  Navigator.pushReplacement(
+                                    context, 
+                                    MaterialPageRoute(
+                                      builder: (context) => ClinicSignInScreen(),
+                                    )
+                                  );
                                 },
                                 text: 'Register',
-                              ),
+                          ),
                           fallback: (context) =>
                               const Center(child: CircularProgressIndicator()),
 
                         ),
-
-                        // defaultButton(
-                        //   text: 'SIGN UP',
-                        //   onPressed: (){
-                        //     if(formKey.currentState!.validate()){
-                        //       Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //           builder: (context) => const GigaPetLayout()
-                        //         )
-                        //       );
-                        //     }
-                        //   }
-                        // )
                       ],
                     ),
                   ),

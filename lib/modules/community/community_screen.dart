@@ -9,10 +9,14 @@ class CommunityScreen extends StatefulWidget {
 }
 
 class _CommunityScreenState extends State<CommunityScreen> {
-  var scaffoldKey = GlobalKey<ScaffoldState>();
 
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   bool isOpen = false;
   IconData fabIcon = Icons.edit;
+  var topicController = TextEditingController();
+  var typeController = TextEditingController();
+  var breedController = TextEditingController();
+  var postController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,30 +43,57 @@ class _CommunityScreenState extends State<CommunityScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
+                        const Text(
                           'Add Post',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold
                           ),
                         ),
-                        SizedBox(height: 10),
-                
-                        defaultFormField(
-                          label: 'Post Topic',
+                        const SizedBox(
+                          height: 10
                         ),
-                        SizedBox(
+                
+                        Padding(
+                          padding: const EdgeInsets.all(22),
+                          child: Column(
+                            children: [
+                              defaultFormField(
+                                label: 'Post Topic',
+                                prefix: Icons.post_add,
+                                controller: topicController
+                              ),
+                              defaultFormField(
+                            label: 'Pet Type',
+                            prefix: Icons.pets,
+                            controller: typeController
+                          ),
+                          defaultFormField(
+                            label: 'Pet Breed',
+                            prefix: Icons.pets_outlined,
+                            controller: breedController
+                          ),
+                            ],
+                          ),
+                        ),
+                        
+                        const SizedBox(
                           height: 10,
                         ),
                         Card(
                           elevation: 10,
-                          color: Colors.grey[200],
+                          color: Colors.grey[100],
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
+                              controller: postController,
                               maxLines: 4,
-                              decoration: InputDecoration(
-                                labelText: 'post here',
+                              decoration: const InputDecoration(
+                                labelText: '. . . Post Here',
+                                labelStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                                ),
                                 floatingLabelBehavior: FloatingLabelBehavior.always
                               ),
                             ),
@@ -95,7 +126,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         ),
         body: ListView.separated(
           itemBuilder:(context, index) => postBuilder(), 
-          separatorBuilder: (context, index) => SizedBox(height: 20,), 
+          separatorBuilder: (context, index) => const SizedBox(height: 20), 
           itemCount: 10
         ),
       ),

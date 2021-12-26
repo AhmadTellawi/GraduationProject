@@ -1,33 +1,17 @@
-// import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
-import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
-import 'package:gigapet/modules/homee/home_screen.dart';
-import 'package:gigapet/modules/identity/identity_screen.dart';
-import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
-import 'package:gigapet/modules/profile/edit_owner_profile_screen.dart';
+import 'package:gigapet/modules/on_boarding/on_boarding_screen.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
-import 'package:gigapet/modules/sign_in/sign_in_identification_screen.dart';
 import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
-import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
-import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
+import 'package:gigapet/modules/sign_up/store_sign_up_screen.dart';
 import 'package:gigapet/shared/bloc_observer.dart';
 import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
-import 'layout/cubit/cubit.dart';
-import 'modules/sign_in/cubit/sign_in_cubit.dart';
-// import 'package:sqflite/sqflite.dart';
-// import 'package:to_do_app/layout/news_app/news_layout.dart';
-// import 'package:to_do_app/layout/todo_app/todo_layout.dart';
-// import 'package:to_do_app/modules/counter/counter_screen.dart';
-// import 'package:to_do_app/modules/counter/cubit/cubit.dart';
-// import 'package:to_do_app/modules/todo_app/tasks/tasks_screen.dart';
-// import 'package:to_do_app/shared/remote/dio_helper.dart';
-// import 'shared/bloc_observer.dart';
+
+
 
 
 
@@ -64,7 +48,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: StoreSignInScreen()
+      home: OnBoardingScreen()
     );
   }
 }

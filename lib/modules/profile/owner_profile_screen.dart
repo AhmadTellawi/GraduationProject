@@ -40,21 +40,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.deepOrange,
-                        radius: 30,
-                      ),
                       SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
-                      Text(
-                        '${person!.fName}',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.deepOrange,
+                            radius: 30,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${person!.fName} ${person.lName}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                          Text(
+                            '${person.Username}'
+                          ),
+                        ],
                       ),
-                      Text
-                        (
-                        '${person.email}'
+                        ],
                       ),
                       SizedBox(
                         height: 20,

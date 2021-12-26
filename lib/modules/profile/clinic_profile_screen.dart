@@ -10,7 +10,7 @@ import 'package:gigapet/shared/components/components.dart';
 import 'edit_clinic_profile_screen.dart';
 
 class ClinicProfileScreen extends StatefulWidget {
-   ClinicProfileScreen({ Key? key }) : super(key: key);
+    ClinicProfileScreen({ Key? key }) : super(key: key);
 
 
 
@@ -21,77 +21,126 @@ class ClinicProfileScreen extends StatefulWidget {
 class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
   User? currentUser = FirebaseAuth.instance.currentUser;
 
-  Database database =  FirestoreDatabase(uid: FirebaseAuth.instance.currentUser!.uid) ;
+  Database database =  FirestoreDatabase(uid: FirebaseAuth.instance.currentUser!.uid);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<ClinicOwnerModel>(
       stream: database.ClinicOwnerStream(personId: currentUser!.uid),
       builder: (context, snapshot) {
         final person = snapshot.data;
-        if (!snapshot.hasData)
+        if (!snapshot.hasData) {
           return Center(
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(Colors.purple),
-              ));
-        else
-        return Scaffold(
-          appBar: AppBar(),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Container(
-                width: double.infinity,
+                valueColor: AlwaysStoppedAnimation(Colors.deepOrange),
+              )
+          );
+        } else {
+          return Scaffold(
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('THIS IS FOR THE CLINIC'),
-                    CircleAvatar(
-                      backgroundColor: Colors.deepOrange,
-                      radius: 30,
-                    ),
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      '${person!.Username}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                      ),
-                    ),
-                    SizedBox(height: 8,),
-                    Text(
-                      '${person.fName} ${person.lName}'
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.deepOrange,
+                          radius: 28,
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              person!.Username,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2
+                            ),
+                        Text(
+                          '${person.fName} ${person.lName}',
+                          style: TextStyle(
+                            fontSize: 14,
+                            overflow:TextOverflow.ellipsis,
+                             
+                          ),
+                        ),
+                          ],
+                        ),
+                      ],
                     ),
                       SizedBox(
                       height: 20,
-                    ),
-                    Row(
-                    children: [
-                      Icon(
-                    Icons.access_time_filled_rounded
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                    'Open for business from 00:00 AM to 00:00 PM'
-                      ),
+                      Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_rounded
+                        ),
+                        SizedBox(
+                          width: 10
+                        ),
+                        Text(
+                          '${person.Address}',
+                          style: TextStyle(
+                            fontSize: 16,
+                            //fontWeight: FontWeight.bold
+                          ),
+                        ),
                     ],
                     ),
                     SizedBox(
-                    height: 20,
+                      height: 10,
                     ),
                     Row(
-                    children: [
-                      Icon(
-                    Icons.location_on_rounded
+                      children: [
+                        Icon(
+                          Icons.access_time_filled_rounded
+                        ),
+                      SizedBox(
+                        width: 10
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                    'Address: something, somewhere'
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Open for business',
+                            style: TextStyle(
+                              fontSize: 16
+                            ),
+                          ),
+                          SizedBox(
+                            height: 2,
+                          ),
+                          Text(
+                            'FROM ${person.workHoursFrom} TO ${person.workHoursTo}',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                     ),
-                    SizedBox(height: 20,),
+                    
+                    SizedBox(
+                      height: 10
+                    ),
+                    
+                    SizedBox(
+                      height: 20
+                    ),
                     defaultButton(
                       text: 'EDIT PROFILE',
                       color: Colors.green,
@@ -114,10 +163,10 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                     )
                   ],
                 ),
-              ),
             ),
           ),
-        );
+          );
+        }
       }
     );
   }

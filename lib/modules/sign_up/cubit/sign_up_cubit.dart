@@ -88,17 +88,6 @@ FirebaseFirestore.instance
 
 });
 }
-
-  // void petRegister({
-  //   required String petName,
-  //   required String petType,
-  //   required String breed,
-  //   required String dateOfBirth,
-  //
-  // }){
-  //   emit(RegisterLoadingState());
-  // }
-
   void storeRegister({
     required String fName,
     required String lName,
@@ -246,8 +235,3 @@ FirebaseFirestore.instance
     });
   }
 }
-
-
-
-//Sign-up
-//SignUp

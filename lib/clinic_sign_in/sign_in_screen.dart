@@ -56,7 +56,6 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('asOIDFHOSUIPFHOAPIDSFHAOPIUSDFHBOI"ASD:FHN'),
                     const Text(
                       "Sign In",
                       style: TextStyle(
@@ -182,16 +181,6 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                                 );
                               });
                             },
-                            // onPressed: (){
-                            //   setState(() {
-                            //     Navigator.push(
-                            //         context,
-                            //         MaterialPageRoute(
-                            //           builder: (context) => IdentityScreen(),
-                            //         )
-                            //     );
-                            //   });
-                            // },
                           child: const Text(
                             'Reset',
                           )

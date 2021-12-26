@@ -2,15 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
-class ClinicEditProfileScreen extends StatelessWidget {
+class ClinicEditProfileScreen extends StatefulWidget {
   ClinicEditProfileScreen({ Key? key }) : super(key: key);
 
+  @override
+  State<ClinicEditProfileScreen> createState() => _ClinicEditProfileScreenState();
+}
+
+class _ClinicEditProfileScreenState extends State<ClinicEditProfileScreen> {
+
   var fNameController = TextEditingController();
+
   var lNameController = TextEditingController();
+
   var userNameController = TextEditingController();
+
   var clinicWorkHoursFromController = TextEditingController();
+
   var clinicWorkHoursToController = TextEditingController();
+
   var clinicAddressController = TextEditingController();
+
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -18,7 +30,7 @@ class ClinicEditProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Profile',
+          'Edit Profile',
           style: TextStyle(
             color: Colors.black
           ),

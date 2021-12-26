@@ -68,15 +68,16 @@ Widget defaultFormField(
 
 Widget postBuilder(){
   return Container(
-    color: Colors.grey,
-    height: 125,
+    color: Colors.grey[200],
+    height: 200,
     width: double.infinity,
     child: Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: const [
+            children:  [
               CircleAvatar(
                 backgroundColor: Colors.red,
               ),
@@ -85,7 +86,7 @@ Widget postBuilder(){
                 'username',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14
+                  fontSize: 16
                 ),
               ),
               SizedBox(width: 20,),
@@ -99,27 +100,33 @@ Widget postBuilder(){
               SizedBox(width: 20,),
               Expanded(
                 child: Text(
-                  'Topic',
+                  'Type - Breed',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 20
+                    fontSize: 14
                   ),
-                ),
-              ),
-              SizedBox(width: 20,),
-              Text(
-                'Type - Breed',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20,),
-          const Text(
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+                'Topic',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+           Text(
             'POST CONTENT',
             style: TextStyle(
               fontSize: 20

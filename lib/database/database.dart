@@ -33,7 +33,7 @@ class FirestoreDatabase implements Database {
       _service.setData(path: 'PetOwnerUsers/$id', data: person.toMap());
 
   @override
-  Future<void> deletePerson() => _service.deleteData(path: 'PetOwnerUsers/$uid');
+  Future<void> deletePerson() => _service.deleteData(path: 'StoreOwnerUsers/$uid');
 
 
   @override

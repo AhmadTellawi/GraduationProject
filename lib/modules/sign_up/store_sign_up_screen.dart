@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/database/database.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/shared/components/components.dart';
+import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
 import 'cubit/sign_up_cubit.dart';
 import 'cubit/states.dart';
@@ -221,37 +222,24 @@ class _StoreSignUpScreenState extends State<StoreSignUpScreen> {
                                   username: userNameController.text,
                                   email: emailController.text,
                                   password: passWordController.text,
-                                  workHoursFrom: storeWorkHoursFromController
-                                      .text,
+                                  workHoursFrom: storeWorkHoursFromController.text,
                                   workHoursTo: storeWorkHoursToController.text,
                                   address: storeAddressController.text,
                                 );
                               }
-                               // Navigator.pushReplacement(
-                               //     context,
-                               //     MaterialPageRoute(
-                               //         builder: (context) => const GigaPetLayout()
-                               //     )
-                               // );
+                              Navigator.pushReplacement(
+                                context, 
+                                MaterialPageRoute(
+                                  builder: (context) => StoreSignInScreen()
+                                )
+                              );
                             },
                             text: 'Register',
                           ),
-                      fallback: (context) =>
-                          Center(child: CircularProgressIndicator()),
+                      fallback: (context) {
+                          return Center(child: CircularProgressIndicator());
+                      }
                     ),
-                    // defaultButton(
-                    //   text: 'SIGN UP',
-                    //   onPressed: (){
-                    //     if(formKey.currentState!.validate()){
-                    //       Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //           builder: (context) => const GigaPetLayout()
-                    //         )
-                    //       );
-                    //     }
-                    //   }
-                    // )
                   ],
                 ),
               ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/sign_in/cubit/states.dart';
+import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/sign_up/cubit/states.dart';
 import 'package:gigapet/modules/sign_up/pet_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
@@ -45,8 +46,6 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                   builder: (context) => const GigaPetLayout())
 
               );
-             // navigate(context,
-             //GigaPetLayout());
             }
         },
         builder: (context, state) {
@@ -174,12 +173,12 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                                   email: emailController.text,
                                   password: passWordController.text,
                                 );
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => const GigaPetLayout()
-                                //     )
-                                // );
+                                Navigator.pushReplacement(
+                                  context, 
+                                  MaterialPageRoute(
+                                    builder: (context) => SignInScreen(),
+                                  )
+                                );
                               }
                           },
                        text: 'Register',
