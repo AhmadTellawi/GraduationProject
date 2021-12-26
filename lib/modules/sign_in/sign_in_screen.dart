@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/clinic_layout.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
@@ -29,11 +30,11 @@ class _SignInScreenState extends State<SignInScreen> {
   var formKey = GlobalKey<FormState>();
   var passWordController = TextEditingController();
   var emailController = TextEditingController();
-
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-
+    
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
@@ -153,12 +154,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     defaultButton(
                       text: 'TAKE A LOOK',
                       onPressed: (){
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) =>  GigaPetLayout()
-                            )
-                          );
+                        auth.signInAnonymously();
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                            builder: (context) =>  AnonymousLayout()
+                          )
+                        );
                       }
                     ),
                     Row(

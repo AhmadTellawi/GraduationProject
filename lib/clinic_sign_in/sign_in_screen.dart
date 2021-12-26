@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/clinic_layout.dart';
 import 'package:gigapet/clinic_layout/layout/gigapet/clinic_layout.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
@@ -160,7 +161,7 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder: (context) =>  GigaPetLayout()
+                              builder: (context) =>  AnonymousLayout()
                             )
                           );
                       }

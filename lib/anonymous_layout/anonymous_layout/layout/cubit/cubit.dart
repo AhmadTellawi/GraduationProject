@@ -5,12 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/clinic_layout/layout/cubit/states.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
+import 'package:gigapet/modules/identity/identity_screen.dart';
 import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 
-class ClinicCubit extends Cubit<AnonymousStates>{
-  ClinicCubit(): super(AppInitState());
+class AnonymousCubit extends Cubit<AnonymousStates>{
+  AnonymousCubit(): super(AppInitState());
 
-  static ClinicCubit get(context) => BlocProvider.of(context);
+  static AnonymousCubit get(context) => BlocProvider.of(context);
   
   bool isPassword = true;
   bool isConfirmPassword = true;
@@ -32,18 +33,18 @@ class ClinicCubit extends Cubit<AnonymousStates>{
       icon: Icon(
         Icons.person
       ),
-      label: 'Profile'
+      label: 'Sign Up'
     ),
   ];
   List<Widget> screens = [
     CommunityScreen(),
     const HomeScreen(),
-     ClinicProfileScreen()
+    IdentityScreen()
   ]; 
   List<String> titles = [
     'Community',
     'Home',
-    'Profile'
+    'Sign Up'
   ];
 
    void changeBottomIndex(index){

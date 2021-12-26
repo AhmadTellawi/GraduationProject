@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/cubit/cubit.dart';
 import 'package:gigapet/clinic_layout/layout/cubit/cubit.dart';
 import 'package:gigapet/clinic_layout/layout/cubit/states.dart';
 import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
+import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
 
-class ClinicLayout extends StatelessWidget {
-   ClinicLayout({ Key? key }) : super(key: key);
+class AnonymousLayout extends StatelessWidget {
+   AnonymousLayout({ Key? key }) : super(key: key);
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -19,13 +21,13 @@ class ClinicLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ClinicCubit(),
-      child: BlocConsumer<ClinicCubit, AnonymousStates>(
+      create: (context) => AnonymousCubit(),
+      child: BlocConsumer<AnonymousCubit, AnonymousStates>(
         listener: (context, state) {
           
         },
         builder: (context, state) {
-          var cubit = ClinicCubit.get(context);
+          var cubit = AnonymousCubit.get(context);
           return Scaffold(
         appBar: AppBar(
           actions: [
@@ -37,7 +39,7 @@ class ClinicLayout extends StatelessWidget {
                   Navigator.pushReplacement(
                     context, 
                     MaterialPageRoute(
-                      builder: (context) => ClinicSignInScreen(),
+                      builder: (context) => SignInScreen(),
                     )
                   );
                 }, 

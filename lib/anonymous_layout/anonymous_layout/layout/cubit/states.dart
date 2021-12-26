@@ -7,6 +7,6 @@ class BottomNavIndexChangedState extends AnonymousStates{}
 class PasswordVisibilityState extends AnonymousStates{}
 
 class SignInState extends AnonymousStates{}
-class ClinicSignInState extends AnonymousStates{}
+class AnonymousSignInState extends AnonymousStates{}
 
 

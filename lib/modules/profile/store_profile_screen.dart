@@ -85,12 +85,12 @@ class _StoreProfileScreenState extends State<StoreProfileScreen> {
                             width: 10
                           ),
                           Text(
-                            'Open for business from ${person.workHoursFrom} AM'
+                            'Open for business from ${person.workHoursFrom}'
                           ),
                         ],
                         ),
                         Text(
-                          '          to ${person.workHoursTo} PM'
+                          '          to ${person.workHoursTo}'
                         ),
                         SizedBox(
                           height: 20
