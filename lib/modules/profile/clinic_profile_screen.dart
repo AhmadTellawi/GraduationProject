@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
 import 'package:gigapet/database/database.dart';
 import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
@@ -159,7 +160,15 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                     defaultButton(
                       color: Colors.red,
                       text: 'DELETE PROFILE',
-                      onPressed: (){},
+                      onPressed: (){
+                        currentUser!.delete();
+                            Navigator.pushReplacement(
+                              context, 
+                              MaterialPageRoute
+                              (builder: (context) => ClinicSignInScreen(),
+                            )
+                            );
+                      },
                     )
                   ],
                 ),

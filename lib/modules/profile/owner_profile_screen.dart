@@ -143,7 +143,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       defaultButton(
                         color: Colors.red,
                         text: 'DELETE PROFILE',
-                        onPressed: () {},
+                        onPressed: () {
+                          currentUser!.delete();
+                            Navigator.pushReplacement(
+                              context, 
+                              MaterialPageRoute
+                              (builder: (context) => SignInScreen(),
+                            )
+                            );
+                        },
                       )
                     ],
                   ),

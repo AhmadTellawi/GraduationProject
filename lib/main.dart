@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: StoreSignInScreen()
+      home: OnBoardingScreen()
     );
   }
 }

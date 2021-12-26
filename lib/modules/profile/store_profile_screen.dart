@@ -8,6 +8,7 @@ import 'package:gigapet/modules/profile/edit_owner_profile_screen.dart';
 import 'package:gigapet/modules/profile/edit_store_profile_screen.dart';
 import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
+import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
 class StoreProfileScreen extends StatefulWidget {
   const StoreProfileScreen({ Key? key }) : super(key: key);
@@ -129,6 +130,13 @@ class _StoreProfileScreenState extends State<StoreProfileScreen> {
                           color: Colors.red,
                           text: 'DELETE PROFILE',
                           onPressed: (){
+                            currentUser!.delete();
+                            Navigator.pushReplacement(
+                              context, 
+                              MaterialPageRoute
+                              (builder: (context) => StoreSignInScreen(),
+                            )
+                            );
                           },
                         )
                       ],
