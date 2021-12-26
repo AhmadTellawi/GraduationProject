@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
+import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 
 class GigaPetLayout extends StatelessWidget {
-  const GigaPetLayout({ Key? key }) : super(key: key);
+  GigaPetLayout({ Key? key }) : super(key: key);
 
-
+  FirebaseAuth auth = FirebaseAuth.instance;
+  logOut() async {
+    await auth.signOut();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -23,8 +28,19 @@ class GigaPetLayout extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
-                onPressed: (){}, 
-                child: Text('Logout')
+                onPressed: (){
+                  logOut();
+                  Navigator.pushReplacement(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context) => SignInScreen(),
+                    )
+                  );
+                }, 
+                child: Text(
+                  'Logout'
+                ),
+                
               ),
             )
           ],

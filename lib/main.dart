@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/on_boarding/on_boarding_screen.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: OnBoardingScreen()
+      home: StoreSignInScreen()
     );
   }
 }

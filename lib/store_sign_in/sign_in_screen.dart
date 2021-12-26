@@ -161,7 +161,7 @@ class _StoreSignInScreenState extends State<StoreSignInScreen> {
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder: (context) => const StoreLayout()
+                              builder: (context) =>  StoreLayout()
                             )
                           );
                       }

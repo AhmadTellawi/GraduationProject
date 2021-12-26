@@ -43,7 +43,8 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
               Navigator.pushReplacement(
                 context,
                   MaterialPageRoute(
-                  builder: (context) => const GigaPetLayout())
+                    builder: (context) =>  GigaPetLayout()
+                  )
 
               );
             }

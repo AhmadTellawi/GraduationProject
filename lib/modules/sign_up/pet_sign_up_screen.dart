@@ -89,7 +89,7 @@ class _PetSignUpScreenState extends State<PetSignUpScreen> {
                         Navigator.pushReplacement(
                           context, 
                           MaterialPageRoute(
-                            builder: (context) => const GigaPetLayout()
+                            builder: (context) =>  GigaPetLayout()
                           )
                         );
                     }

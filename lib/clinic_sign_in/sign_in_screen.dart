@@ -114,7 +114,7 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const ClinicLayout()
+                                      builder: (context) =>  ClinicLayout()
                                   )
                               );
                               //emit(LoginSuccessState());
@@ -160,7 +160,7 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder: (context) => const GigaPetLayout()
+                              builder: (context) =>  GigaPetLayout()
                             )
                           );
                       }

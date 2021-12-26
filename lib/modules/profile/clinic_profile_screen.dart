@@ -43,7 +43,7 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
                     Row(
                       children: [
@@ -80,7 +80,7 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                       ],
                     ),
                       SizedBox(
-                      height: 20,
+                      height: 40,
                       ),
                       Row(
                       children: [

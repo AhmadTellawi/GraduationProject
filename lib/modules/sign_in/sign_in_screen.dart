@@ -112,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const GigaPetLayout()
+                                      builder: (context) =>  GigaPetLayout()
                                   )
                               );
                             })
@@ -156,7 +156,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder: (context) => const GigaPetLayout()
+                              builder: (context) =>  GigaPetLayout()
                             )
                           );
                       }
