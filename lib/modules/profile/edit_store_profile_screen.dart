@@ -155,7 +155,16 @@ class _StoreEditProfileScreenState extends State<StoreEditProfileScreen> {
                     ),
                     defaultButton(
                           text: 'CONFIRM',
-                          onPressed: (){
+                          onPressed: ()async{
+                            if (formKey.currentState!.validate()){
+                              person.fName = fNameController.text;
+                              person.lName = lNameController.text;
+                              person.Username = userNameController.text;
+                              person.workHoursFrom = StoreWorkHoursFromController.text;
+                              person.workHoursTo = StoreWorkHoursToController.text;
+
+                              await database.setStorePerson(person, person.uID);
+                            }
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

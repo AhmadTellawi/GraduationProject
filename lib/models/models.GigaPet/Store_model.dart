@@ -26,7 +26,7 @@ class StoreOwnerModel
 
       );
 
-  StoreOwnerModel.fromJson(Map<String, dynamic>json){
+  StoreOwnerModel.fromJson(Map<String, dynamic>json, String personId){
     email = json['email'];
     fName = json['fname'];
     lName = json['lname'];

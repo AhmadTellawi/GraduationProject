@@ -4,7 +4,6 @@ import 'package:gigapet/database/database.dart';
 import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
 import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
-import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
 
 class ClinicEditProfileScreen extends StatefulWidget {
   ClinicEditProfileScreen({ Key? key }) : super(key: key);
@@ -109,54 +108,61 @@ class _ClinicEditProfileScreenState extends State<ClinicEditProfileScreen> {
                       height: 20,
                     ),
                     defaultFormField(
-                                prefix: Icons.access_time,
-                                controller: clinicWorkHoursFromController,
-                                label: '${person.workHoursFrom}',
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Work Hours Must Not Be Empty';
-                                  }
-                                },
-                                  onTap: () {
-                                    showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.now()
+                        prefix: Icons.access_time,
+                        controller: clinicWorkHoursFromController,
+                        label: '${person.workHoursFrom}',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Work Hours Must Not Be Empty';
+                          }
+                        },
+                        onTap: () {
+                          showTimePicker(
+                              context: context,
+                              initialTime: TimeOfDay.now()
 
-                                    ).then((value) {
-                                      clinicWorkHoursFromController.text =
-                                          value!.format(context);
-                                    });
-                                  }
-
-                              ),
+                          ).then((value) {
+                            clinicWorkHoursFromController.text =
+                                value!.format(context);
+                          });
+                        }
+                    ),
                     SizedBox(
                       height: 20,
                     ),
                     defaultFormField(
-                                prefix: Icons.access_time_filled_outlined,
-                                  controller: clinicWorkHoursToController,
-                                  label: '${person.workHoursTo}',
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return 'Work Hours Must Not Be Empty';
-                                    }
-                                  },
-                                  onTap: () {
-                                    showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.now()
-                                    ).then((value) {
-                                      clinicWorkHoursToController.text =
-                                          value!.format(context);
-                                    });
-                                  }
-                              ),
+                        prefix: Icons.access_time_filled_outlined,
+                        controller: clinicWorkHoursToController,
+                        label: '${person.workHoursTo}',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Work Hours Must Not Be Empty';
+                          }
+                        },
+                        onTap: () {
+                          showTimePicker(
+                              context: context,
+                              initialTime: TimeOfDay.now()
+                          ).then((value) {
+                            clinicWorkHoursToController.text = value!.format(context);
+                          });
+                        }
+                    ),
                     SizedBox(
                       height: 20,
                     ),
                     defaultButton(
                           text: 'CONFIRM',
-                          onPressed: (){
+                          onPressed:() async{
+                            if (formKey.currentState!.validate()){
+                              person.fName = fNameController.text;
+                              person.lName = lNameController.text;
+                              person.Username = userNameController.text;
+                              person.workHoursFrom = clinicWorkHoursFromController.text;
+                              person.workHoursTo = clinicWorkHoursToController.text;
+
+                              await database.setClinicPerson(person, person.uID);
+                            }
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

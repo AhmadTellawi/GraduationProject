@@ -149,7 +149,18 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                         ),
                         defaultButton(
                           text: 'CONFIRM',
-                          onPressed: (){
+                          onPressed: () async{
+                            if (formKey.currentState!.validate()){
+                              person.fName = fNameController.text;
+                              person.lName = lNameController.text;
+                              person.Username = userNameController.text;
+                              person.petName = petNameController.text;
+                              person.petType = petTypeController.text;
+                              person.petBreed = petBreedController.text;
+                              person.petBirth = dateOfBirthController.text;
+
+                              await database.setOwnerPerson(person, person.uID);
+                            }
                             Navigator.push(
                               context,
                               MaterialPageRoute(

@@ -59,7 +59,7 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              person!.Username,
+                              '${person!.fName} ${person.lName}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 22
@@ -69,7 +69,7 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                               height: 2
                             ),
                         Text(
-                          '${person.fName} ${person.lName}',
+                          '${person.Username}',
                           style: TextStyle(
                             fontSize: 14,
                             overflow:TextOverflow.ellipsis,
@@ -103,36 +103,24 @@ class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
                     SizedBox(
                       height: 10,
                     ),
+                    SizedBox(
+                      height: 50,
+                    ),
                     Row(
                       children: [
                         Icon(
-                          Icons.access_time_filled_rounded
+                            Icons.access_time_filled_rounded
                         ),
-                      SizedBox(
-                        width: 10
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Open for business',
-                            style: TextStyle(
-                              fontSize: 16
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'FROM ${person.workHoursFrom} TO ${person.workHoursTo}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                        SizedBox(
+                            width: 10
+                        ),
+                        Text(
+                            'Open for business from ${person.workHoursFrom}'
+                        ),
+                      ],
+                    ),
+                    Text(
+                        '          to ${person.workHoursTo}'
                     ),
                     
                     SizedBox(

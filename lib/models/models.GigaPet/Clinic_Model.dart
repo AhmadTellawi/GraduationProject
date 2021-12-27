@@ -26,7 +26,7 @@ class ClinicOwnerModel
 
       );
 
-  ClinicOwnerModel.fromJson(Map<String, dynamic>json){
+  ClinicOwnerModel.fromJson(Map<String, dynamic>json,String personId){
     email = json['email'];
     fName = json['fname'];
     lName = json['lname'];
