@@ -64,13 +64,13 @@ class FirestoreDatabase implements Database {
   Stream<ClinicOwnerModel> ClinicOwnerStream({required String personId}) =>
       _service.documentStream(
         path: '/ClinicOwnerUsers/$personId',
-        builder: (data, documentId) => ClinicOwnerModel.fromJson(data,documentId ),
+        builder: (data, documentId) => ClinicOwnerModel.fromJson(data, documentId),
       );
 
   @override
   Stream<List<ClinicOwnerModel>> ClinicOwnersStream() => _service.collectionStream(
     path: 'ClinicOwnerUsers/',
-    builder: (data, documentId) => ClinicOwnerModel.fromJson(data,documentId),
+    builder: (data, documentId) => ClinicOwnerModel.fromJson(data, documentId),
   );
 
 
@@ -79,7 +79,7 @@ class FirestoreDatabase implements Database {
   Stream<StoreOwnerModel> StoreOwnerStream({required String personId}) =>
       _service.documentStream(
         path: '/StoreOwnerUsers/$personId',
-        builder: (data, documentId) => StoreOwnerModel.fromJson(data,documentId),
+        builder: (data, documentId) => StoreOwnerModel.fromJson(data, documentId),
       );
 
   @override

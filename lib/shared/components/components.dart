@@ -38,10 +38,12 @@ Widget defaultFormField(
     TextInputType keyboardtype = TextInputType.text,
     IconData? icon,
     IconData? prefix,
-    void Function()? iconPressed
+    void Function()? iconPressed,
+    String? init
   }
 ){
   return TextFormField(
+    initialValue: init,
     keyboardType: keyboardtype,
     obscureText: isPassowrd,
     validator: validator,

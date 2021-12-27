@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gigapet/database/database.dart';
+import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/models/models.GigaPet/PetOwner_Model.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
@@ -98,10 +99,6 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.deepOrange,
-                          radius: 30,
-                        ),
                         SizedBox(
                           width: 20,
                         ),
@@ -164,7 +161,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ProfileScreen(),
+                                builder: (context) => GigaPetLayout(),
                               )
                             );
                           },

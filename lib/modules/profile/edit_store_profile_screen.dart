@@ -5,6 +5,7 @@ import 'package:gigapet/models/models.GigaPet/Store_model.dart';
 import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 import 'package:gigapet/modules/profile/store_profile_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
+import 'package:gigapet/store_layout/layout/gigapet/store_layout.dart';
 
 class StoreEditProfileScreen extends StatefulWidget {
   StoreEditProfileScreen({ Key? key }) : super(key: key);
@@ -168,7 +169,7 @@ class _StoreEditProfileScreenState extends State<StoreEditProfileScreen> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => StoreProfileScreen(),
+                                builder: (context) => StoreLayout(),
                               )
                             );
                           },
