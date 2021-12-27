@@ -1,12 +1,12 @@
-abstract class AnonymousStates{}
+abstract class ClinicStates{}
 
-class AppInitState extends AnonymousStates{}
+class AppInitState extends ClinicStates{}
 
-class BottomNavIndexChangedState extends AnonymousStates{}
+class BottomNavIndexChangedState extends ClinicStates{}
 
-class PasswordVisibilityState extends AnonymousStates{}
+class PasswordVisibilityState extends ClinicStates{}
 
-class SignInState extends AnonymousStates{}
-class ClinicSignInState extends AnonymousStates{}
+class SignInState extends ClinicStates{}
+class ClinicSignInState extends ClinicStates{}
 
 

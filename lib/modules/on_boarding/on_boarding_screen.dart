@@ -120,7 +120,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 FloatingActionButton(
                   onPressed: (){
                     if(isLast){
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context, 
                         MaterialPageRoute(
                           builder: (context) => Sign_In_Identification_Screen(),

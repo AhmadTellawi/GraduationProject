@@ -45,7 +45,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
             
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context, 
                         MaterialPageRoute(
                           builder: (context) => SignInScreen(),
@@ -66,7 +66,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                                 color: Colors.white,
                             ), 
                             onPressed: (){
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context, 
                                 MaterialPageRoute(
                                   builder: (context) => SignInScreen(),
@@ -93,7 +93,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context, 
                         MaterialPageRoute(
                           builder: (context) => ClinicSignInScreen(),
@@ -114,7 +114,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                                 color: Colors.white,
                             ), 
                             onPressed: (){
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context, 
                                 MaterialPageRoute(
                                   builder: (context) => ClinicSignInScreen(),
@@ -141,7 +141,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context, 
                         MaterialPageRoute(
                           builder: (context) => StoreSignInScreen(),
@@ -162,7 +162,7 @@ class Sign_In_Identification_Screen extends StatelessWidget {
                                 color: Colors.white,
                             ), 
                             onPressed: (){
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context, 
                                 MaterialPageRoute(
                                   builder: (context) => StoreLayout(),

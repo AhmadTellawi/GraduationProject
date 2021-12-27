@@ -2,13 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/clinic_layout.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/anonymous_layout.dart';
 import 'package:gigapet/clinic_layout/layout/gigapet/clinic_layout.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
 import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
 import 'package:gigapet/modules/identity/identity_screen.dart';
 import 'package:gigapet/modules/sign_in/reset.dart';
+import 'package:gigapet/modules/sign_in/sign_in_identification_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 
@@ -104,7 +105,6 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           {
-                            //emit(LoginLoadingState());
                             FirebaseAuth.instance.signInWithEmailAndPassword
                               (
                               email: emailController.text,
@@ -112,23 +112,20 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                             ).then((value){
                               print(value.user!.email);
                               print(value.user!.uid);
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>  ClinicLayout()
                                   )
                               );
-                              //emit(LoginSuccessState());
                             })
                                 .catchError((error){
-                              //emit(LoginErrorState(error.toString()));
                               Fluttertoast.showToast(msg: "invalid inputs, please Try Again" );
                               print(error.toString());
                               print('Invalid Inputs');
                             }
                             );
                           }
-
                         }
                       },
                       text: 'LOGIN',
@@ -158,7 +155,7 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                     defaultButton(
                       text: 'TAKE A LOOK',
                       onPressed: (){
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context, 
                             MaterialPageRoute(
                               builder: (context) =>  AnonymousLayout()
@@ -187,7 +184,18 @@ class _ClinicSignInScreenState extends State<ClinicSignInScreen> {
                           )
                         )
                       ],
-                    )
+                    ),
+                    defaultButton(
+                      text: 'LOGIN AS SOMEONE ELSE',
+                      onPressed: (){
+                          Navigator.pushReplacement(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context) =>  Sign_In_Identification_Screen()
+                            )
+                          );
+                      }
+                    ),
                   ],
                 ),
               ),

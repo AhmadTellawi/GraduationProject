@@ -205,7 +205,7 @@ class _OwnerSignUpScreenState extends State<OwnerSignUpScreen> {
                                 firstDate: DateTime.parse('1990-01-01'),
                                 lastDate: DateTime.now()
                             ).then((value) {
-                              dateOfBirthController.text = DateFormat.MMMMEEEEd().format(value!);
+                              dateOfBirthController.text = DateFormat.yMMMMd().format(value!);
                             });
                           }
                       ),

@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gigapet/clinic_layout/layout/cubit/states.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/cubit/states.dart';
+
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
 import 'package:gigapet/modules/identity/identity_screen.dart';
-import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 
 class AnonymousCubit extends Cubit<AnonymousStates>{
   AnonymousCubit(): super(AppInitState());
@@ -63,7 +63,7 @@ class AnonymousCubit extends Cubit<AnonymousStates>{
   }
 
   void identifyUser(){
-    emit(ClinicSignInState());
+    emit(AnonymousSignInState());
   }
 
 

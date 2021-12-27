@@ -20,7 +20,7 @@ class ClinicLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ClinicCubit(),
-      child: BlocConsumer<ClinicCubit, AnonymousStates>(
+      child: BlocConsumer<ClinicCubit, ClinicStates>(
         listener: (context, state) {
           
         },

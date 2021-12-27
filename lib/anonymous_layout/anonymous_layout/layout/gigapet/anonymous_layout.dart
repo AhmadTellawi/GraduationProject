@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/anonymous_layout/anonymous_layout/layout/cubit/cubit.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/cubit/states.dart';
 import 'package:gigapet/clinic_layout/layout/cubit/cubit.dart';
 import 'package:gigapet/clinic_layout/layout/cubit/states.dart';
 import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
+import 'package:gigapet/modules/sign_in/sign_in_identification_screen.dart';
 import 'package:gigapet/modules/sign_in/sign_in_screen.dart';
 import 'package:gigapet/store_sign_in/sign_in_screen.dart';
 
@@ -39,7 +41,7 @@ class AnonymousLayout extends StatelessWidget {
                   Navigator.pushReplacement(
                     context, 
                     MaterialPageRoute(
-                      builder: (context) => SignInScreen(),
+                      builder: (context) => Sign_In_Identification_Screen(),
                     )
                   );
                 }, 

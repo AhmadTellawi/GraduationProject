@@ -137,7 +137,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
                               firstDate: DateTime.parse('1990-01-01'),
                               lastDate: DateTime.now()
                             ).then((value) {
-                              dateOfBirthController.text = DateFormat.MMMMEEEEd().format(value!);
+                              dateOfBirthController.text = DateFormat.yMMMMd().format(value!);
                             });
                           }
                         ),
@@ -158,7 +158,7 @@ class _PetOwnerEditProfileScreenState extends State<PetOwnerEditProfileScreen> {
 
                               await database.setOwnerPerson(person, person.uID);
                             }
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => GigaPetLayout(),

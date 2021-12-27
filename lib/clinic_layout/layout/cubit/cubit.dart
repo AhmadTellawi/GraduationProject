@@ -7,7 +7,7 @@ import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
 import 'package:gigapet/modules/profile/clinic_profile_screen.dart';
 
-class ClinicCubit extends Cubit<AnonymousStates>{
+class ClinicCubit extends Cubit<ClinicStates>{
   ClinicCubit(): super(AppInitState());
 
   static ClinicCubit get(context) => BlocProvider.of(context);

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/clinic_layout.dart';
+import 'package:gigapet/anonymous_layout/anonymous_layout/layout/gigapet/anonymous_layout.dart';
 import 'package:gigapet/clinic_layout/layout/gigapet/clinic_layout.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
@@ -11,6 +11,7 @@ import 'package:gigapet/modules/identity/identity_screen.dart';
 import 'package:gigapet/modules/profile/edit_store_profile_screen.dart';
 import 'package:gigapet/modules/profile/store_profile_screen.dart';
 import 'package:gigapet/modules/sign_in/reset.dart';
+import 'package:gigapet/modules/sign_in/sign_in_identification_screen.dart';
 import 'package:gigapet/modules/sign_up/owner_sign_up_screen.dart';
 import 'package:gigapet/shared/components/components.dart';
 import 'package:gigapet/store_layout/layout/gigapet/store_layout.dart';
@@ -115,7 +116,7 @@ class _StoreSignInScreenState extends State<StoreSignInScreen> {
                             ).then((value){
                               print(value.user!.email);
                               print(value.user!.uid);
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => StoreLayout()
@@ -159,7 +160,7 @@ class _StoreSignInScreenState extends State<StoreSignInScreen> {
                     defaultButton(
                       text: 'TAKE A LOOK',
                       onPressed: (){
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context, 
                             MaterialPageRoute(
                               builder: (context) =>  AnonymousLayout()
@@ -186,9 +187,20 @@ class _StoreSignInScreenState extends State<StoreSignInScreen> {
                           child: const Text(
                             'Reset',
                           )
-                        )
+                        ),
                       ],
-                    )
+                    ),
+                    defaultButton(
+                      text: 'LOGIN AS SOMEONE ELSE',
+                      onPressed: (){
+                          Navigator.pushReplacement(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context) =>  Sign_In_Identification_Screen()
+                            )
+                          );
+                      }
+                    ),
                   ],
                 ),
               ),
