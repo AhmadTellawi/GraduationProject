@@ -21,7 +21,6 @@ class ClinicProfileScreen extends StatefulWidget {
 
 class _ClinicProfileScreenState extends State<ClinicProfileScreen> {
   User? currentUser = FirebaseAuth.instance.currentUser;
-
   Database database =  FirestoreDatabase(uid: FirebaseAuth.instance.currentUser!.uid);
   @override
   Widget build(BuildContext context) {

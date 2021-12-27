@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/clinic_sign_in/sign_in_screen.dart';
+import 'package:gigapet/layout/gigapet/gigapet_layout.dart';
+import 'package:gigapet/modules/chats/chats.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/on_boarding/on_boarding_screen.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';

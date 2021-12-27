@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gigapet/layout/cubit/states.dart';
+import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
+import 'package:gigapet/modules/chats/chats.dart';
 import 'package:gigapet/modules/community/community_screen.dart';
 import 'package:gigapet/modules/homee/home_screen.dart';
 import 'package:gigapet/modules/profile/owner_profile_screen.dart';
@@ -15,13 +17,19 @@ class AppCubit extends Cubit<AppStates>{
 
   bool isPassword = true;
   bool isConfirmPassword = true;
-  int currentIndex = 1;
+  int currentIndex = 2;
   List<BottomNavigationBarItem> navBarItems = [
     const BottomNavigationBarItem(
       icon: Icon(
         Icons.post_add_sharp
       ),
       label: 'Community'
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(
+        Icons.post_add_sharp
+      ),
+      label: 'Chats'
     ),
     const BottomNavigationBarItem(
       icon: Icon(
@@ -38,11 +46,13 @@ class AppCubit extends Cubit<AppStates>{
   ];
   List<Widget> screens = [
     CommunityScreen(),
-    const HomeScreen(),
-     ProfileScreen()
+    ChatsScreen(),
+    HomeScreen(),
+    ProfileScreen()
   ]; 
   List<String> titles = [
     'Community',
+    'Chats',
     'Home',
     'Profile'
   ];
@@ -71,7 +81,15 @@ class AppCubit extends Cubit<AppStates>{
     }
   }
 
-   
+   List<ClinicOwnerModel> clinic = [];
+
+  //  void getClinic(){
+  //   FirebaseFirestore.instance.collection('/ClinicOwnerUsers/').get().then((value) {
+  //     value.docs.forEach((element) { 
+  //       clinic.add(ClinicOwnerModel.fromJson(element.data()));
+  //     })
+  //   });
+  //  }
 
   
 }

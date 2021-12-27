@@ -55,6 +55,7 @@ class GigaPetLayout extends StatelessWidget {
         ),
         body: cubit.screens[cubit.currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: cubit.currentIndex,
           items: cubit.navBarItems,
           onTap: (index){

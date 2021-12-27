@@ -14,7 +14,7 @@ class ClinicCubit extends Cubit<ClinicStates>{
   
   bool isPassword = true;
   bool isConfirmPassword = true;
-  int currentIndex = 1;
+  int currentIndex = 2;
   List<BottomNavigationBarItem> navBarItems = [
     const BottomNavigationBarItem(
       icon: Icon(
