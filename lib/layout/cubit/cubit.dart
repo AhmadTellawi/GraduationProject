@@ -27,7 +27,7 @@ class AppCubit extends Cubit<AppStates>{
     ),
     const BottomNavigationBarItem(
       icon: Icon(
-        Icons.post_add_sharp
+        Icons.chat_bubble
       ),
       label: 'Chats'
     ),
