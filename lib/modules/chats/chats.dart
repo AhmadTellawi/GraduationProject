@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gigapet/database/database.dart';
 import 'package:gigapet/layout/cubit/cubit.dart';
 import 'package:gigapet/layout/cubit/states.dart';
+import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
+import 'package:gigapet/modules/community/list_items_builder.dart';
 
 class ChatsScreen extends StatefulWidget {
-  const ChatsScreen({ Key? key }) : super(key: key);
-
+  ChatsScreen({ Key? key }) : super(key: key);
   @override
   _ChatsScreenState createState() => _ChatsScreenState();
 }
@@ -13,30 +16,27 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create:(context) => AppCubit(),
-      child: BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {
-          
-        },
-         builder: (context, state) {
-            var cubit = AppCubit.get(context);
-            return ListView.separated(
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) => buildChatItem(), 
-              separatorBuilder: (context, index) => SizedBox(height: 10,), 
-              itemCount: 10
-            );
-         }
-      ),
-    );
+     FirebaseAuth auth = FirebaseAuth.instance;
+     Database database =  FirestoreDatabase(uid: auth.currentUser!.uid);
+          return StreamBuilder<List<ClinicOwnerModel>>(
+            stream: database.ClinicOwnersStream(),
+            builder: (context, snapshot) {
+              return ListItemsBuilder<ClinicOwnerModel>(
+                snapshot: snapshot,
+                itemBuilder: (context, clinicOwner) {
+                  return buildChatItem(clinicOwner);
+                },
+              );
+            }
+          );
+       }
   }
-}
 
-Widget buildChatItem() => InkWell(
+
+Widget buildChatItem(ClinicOwnerModel clinicOwner) => InkWell(
   onTap: (){},
   child:   Padding(
-    padding: const EdgeInsets.all(20),
+    padding:  EdgeInsets.all(20),
     child:   Row(
       children: [
         CircleAvatar(
@@ -46,7 +46,7 @@ Widget buildChatItem() => InkWell(
           width: 15,
         ),
         Text(
-          'Abdullah Helmi',
+          clinicOwner.Username,
           style: TextStyle(
             fontWeight: FontWeight.bold
           ),

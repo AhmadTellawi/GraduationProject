@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:gigapet/models/models.GigaPet/Clinic_Model.dart';
 import 'package:gigapet/models/models.GigaPet/PetOwner_Model.dart';
 import 'package:gigapet/models/models.GigaPet/Store_model.dart';
+import 'package:gigapet/models/models.GigaPet/psot_model.dart';
 import 'firestore_service.dart';
 
 abstract class Database {
@@ -19,9 +20,11 @@ abstract class Database {
   Stream<List<ClinicOwnerModel>> ClinicOwnersStream();
   Stream<StoreOwnerModel> StoreOwnerStream({required String personId});
   Stream<List<StoreOwnerModel>> StoreOwnersStream();
-
+  Future<void> setPost(PostModel post);
+  Stream<List<PostModel>> postsStream();
 }
 
+String currentDate() => DateTime.now().toIso8601String();
 
 class FirestoreDatabase implements Database {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -87,6 +90,19 @@ class FirestoreDatabase implements Database {
     path: 'StoreOwnerUsers/',
     builder: (data, documentId) => StoreOwnerModel.fromJson(data,documentId),
   );
+  @override
+  Future<void> setPost(PostModel post) async {
+    String postID = '${post.Username}${currentDate()}';
+    await _service.setData(
+      path: 'Posts/${postID}',
+      data: post.toMap(),
+    );
+  }
 
+  @override
+  Stream<List<PostModel>> postsStream() => _service.collectionStream(
+    path: 'Posts/',
+    builder: (data, documentId) => PostModel.fromJson(data, documentId),
+  );
 
 }

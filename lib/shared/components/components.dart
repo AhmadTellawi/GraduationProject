@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gigapet/models/models.GigaPet/psot_model.dart';
 
 
 Widget defaultButton(
@@ -68,7 +69,7 @@ Widget defaultFormField(
   );
 }
 
-Widget postBuilder(){
+Widget postBuilder(PostModel post){
   return Container(
     color: Colors.grey[200],
     height: 200,
@@ -85,7 +86,7 @@ Widget postBuilder(){
               ),
               SizedBox(width: 20,),
               Text(
-                'username',
+                 post.Username,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16
@@ -102,7 +103,7 @@ Widget postBuilder(){
               SizedBox(width: 20,),
               Expanded(
                 child: Text(
-                  'Type - Breed',
+                  '${post.petType} - ${post.petBreed}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -117,7 +118,7 @@ Widget postBuilder(){
             height: 20,
           ),
           Text(
-                'Topic',
+                post.postTopic,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -129,7 +130,7 @@ Widget postBuilder(){
                 height: 40,
               ),
            Text(
-            'POST CONTENT',
+            post.postContent,
             style: TextStyle(
               fontSize: 20
             ),
